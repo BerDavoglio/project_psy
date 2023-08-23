@@ -3,8 +3,8 @@
 <template>
   <div>
     <div className="p-2 text-lg
-        w-96 bg-purple-800
-        rounded-md m-auto text-white">
+        w-96 bg-blue-200
+        rounded-md m-auto">
         <div className="text-bold text-left">
           {{ this.obj.title }}
         </div>

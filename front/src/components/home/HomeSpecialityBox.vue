@@ -11,7 +11,7 @@
           bg-cover bg-no-repeat bg-center">
         {{ this.obj.title }}
       </div>
-      <div v-if="hover == true" className="bg-purple-800 p-3 w-full h-full rounded-md">
+      <div v-if="hover == true" className="bg-white text-black p-3 w-full h-full rounded-md">
         <div className="text-2xl font-bold">
           {{ this.obj.title }}
         </div>

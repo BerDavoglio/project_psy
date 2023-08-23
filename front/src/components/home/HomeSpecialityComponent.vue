@@ -2,7 +2,7 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="home-speciality-component">
-    <div className="w-full h-[28rem] bg-blue-400">
+    <div className="w-full h-[28rem] bg-blue-200">
       <div className="text-xl p-4 font-bold">Especialidades:</div>
       <div className="grid grid-cols-3 w-[50rem] m-auto">
         <home-speciality-box :obj="obj[0]"></home-speciality-box>
