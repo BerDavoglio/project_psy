@@ -11,9 +11,9 @@
             <img alt="" className="max-h-[2rem] cursor-pointer" src="../../assets/images/logo.png"
               @click="this.$router.push({ name: `home` });" />
           </div>
-          <div>
-            <v-icon @click="openMenu" className="cursor-pointer" name="gi-hamburger-menu" scale="2" v-if="!isOpen" />
-            <v-icon @click="openMenu" className="cursor-pointer" name="io-close-sharp" scale="2" v-if="isOpen" />
+          <div className="cursor-pointer">
+            <v-icon @click="openMenu" name="gi-hamburger-menu" scale="2" v-if="!isOpen" />
+            <v-icon @click="openMenu" name="io-close-sharp" scale="2" v-if="isOpen" />
           </div>
         </div>
       </div>
