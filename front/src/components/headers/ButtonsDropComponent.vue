@@ -2,14 +2,14 @@
 <template>
   <div  className="bg-gray-200">
     <div className="mx-10" v-if="!isOpen">
-      <div :className="['mx-auto py-4 grid max-w-[30rem] '
-        + (isCell ? 'grid-cols-1' : 'grid-cols-3')]">
+      <div :className="['mx-auto py-4 grid max-w-[40rem] '
+        + (isCell ? 'grid-cols-1' : 'grid-cols-4')]">
         <div className="
             m-auto cursor-pointer
             hover:bg-gray-300
             active:bg-gray-400
             active:text-white
-            w-[10rem]" @click="goPage('home')">
+            w-[8rem]" @click="goPage('home')">
           Home
         </div>
         <div className="
@@ -17,7 +17,7 @@
             hover:bg-gray-300
             active:bg-gray-400
             active:text-white
-            w-[10rem]" @click="goPage('about')">
+            w-[8rem]" @click="goPage('about')">
           Sobre
         </div>
         <div className="
@@ -25,8 +25,32 @@
             hover:bg-gray-300
             active:bg-gray-400
             active:text-white
-            w-[10rem]" @click="goPage('profissionals')">
+            w-[8rem]" @click="goPage('profissionals')">
           Profissionais
+        </div>
+        <div v-if="perfil === 'USER'" className="
+            m-auto cursor-pointer
+            hover:bg-gray-300
+            active:bg-gray-400
+            active:text-white
+            w-[8rem]" @click="goPage('perfil')">
+          Perfil
+        </div>
+        <div v-if="perfil === 'ADMIN'" className="
+            m-auto cursor-pointer
+            hover:bg-gray-300
+            active:bg-gray-400
+            active:text-white
+            w-[8rem]" @click="goPage('admin')">
+          Perfil Administrativo
+        </div>
+        <div v-if="perfil === ''" className="
+            m-auto cursor-pointer
+            hover:bg-gray-300
+            active:bg-gray-400
+            active:text-white
+            w-[8rem]" @click="goPage('login')">
+          Login
         </div>
       </div>
     </div>
@@ -40,6 +64,11 @@ export default {
     'isOpen',
     'isCell',
   ],
+  data() {
+    return {
+      perfil: 'USER',
+    };
+  },
   methods: {
     goPage(route) {
       this.$router.push({ name: route });

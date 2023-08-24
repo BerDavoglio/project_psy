@@ -1,5 +1,6 @@
 <template>
   <div class="profissional-view">
+    <div className="text-2xl font-bold">Profissionais:</div>
     <div v-for="(obj, index) in listObj" :key="obj" className="font-mono">
       <profissional-box-component :obj="obj" :i="index" />
     </div>

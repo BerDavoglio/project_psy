@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import ProfissionalView from '../views/ProfissionalView.vue';
+import UserPerfilView from '../views/UserPerfilView.vue';
 
 const routes = [
   {
@@ -18,6 +19,21 @@ const routes = [
     path: '/profissionals',
     name: 'profissionals',
     component: ProfissionalView,
+  },
+  {
+    path: '/perfil',
+    name: 'perfil',
+    component: UserPerfilView,
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: UserPerfilView,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: UserPerfilView,
   },
 ];
 

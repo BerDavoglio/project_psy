@@ -4,7 +4,8 @@
   <div>
     <div className="p-2 text-lg
         w-96 bg-blue-200
-        rounded-md m-auto">
+        rounded-md m-auto
+        hover:scale-[110%] transform transition duration-50 hover:z-10">
         <div className="text-bold text-left">
           {{ this.obj.title }}
         </div>
