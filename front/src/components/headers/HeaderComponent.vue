@@ -2,7 +2,7 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div>
-    <div :className="['py-4 bg-gray-200 '
+    <div :className="['py-4 bg-blue-200 '
       + (isCell ? 'grid-cols-1' : 'grid-cols-2 ')
       + (isOpen ? '' : 'drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]')]">
       <div>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div className="bg-gray-200">
+    <div className="bg-blue-200">
       <div v-if="isOpen" className="w-[70%] h-[1px] bg-black m-auto"></div>
     </div>
     <buttons-drop-component :isOpen="!isOpen" :isCell="isCell"></buttons-drop-component>
