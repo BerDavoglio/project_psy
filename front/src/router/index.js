@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import ProfissionalView from '../views/ProfissionalView.vue';
 import UserPerfilView from '../views/UserPerfilView.vue';
+import AdminPerfilView from '../views/AdminPerfilView.vue';
+import LoginView from '../views/LoginView.vue';
 
 const routes = [
   {
@@ -28,12 +30,12 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: UserPerfilView,
+    component: AdminPerfilView,
   },
   {
     path: '/login',
     name: 'login',
-    component: UserPerfilView,
+    component: LoginView,
   },
 ];
 

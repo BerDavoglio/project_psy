@@ -76,7 +76,6 @@
                  placeholder="Aniversário"
                  className="w-[90%] h-8 rounded-lg p-2 mb-2">
           <input v-model="user.cpf"
-                 v-maska="'###.###.###-##'"
                  placeholder="CPF"
                  className="w-[90%] h-8 rounded-lg p-2 mb-2">
           <div className="mx-auto w-36 p-1

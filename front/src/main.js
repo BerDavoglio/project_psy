@@ -8,7 +8,8 @@ import {
   IoCloseSharp,
 } from 'oh-vue-icons/icons';
 
-import Maska from 'maska';
+import VCalendar from 'v-calendar';
+import 'v-calendar/style.css';
 
 import router from './router';
 import store from './store';
@@ -23,7 +24,7 @@ addIcons(
 );
 
 createApp(App).component('v-icon', OhVueIcon)
-  .use(Maska)
+  .use(VCalendar, {})
   .use(store)
   .use(router)
   .mount('#app');
