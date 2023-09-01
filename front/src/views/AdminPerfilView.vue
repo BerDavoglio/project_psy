@@ -6,6 +6,10 @@
       rounded-xl cursor-pointer shadow-xl">
         Adicionar Consulta
       </div>
+      <div className="w-48 p-2 bg-blue-200 my-10 mx-auto
+      rounded-xl cursor-pointer shadow-xl">
+        Gerenciar Funcionários
+      </div>
     </div>
   </div>
 </template>

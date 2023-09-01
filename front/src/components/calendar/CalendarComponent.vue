@@ -3,6 +3,13 @@
 <template>
   <div class="calendar-component">
     <div className="w-[42rem] m-auto">
+      <div className="grid grid-cols-7 mb-2">
+        <div className="col-start-3 cursor-pointer text-xl"
+             @click="changeMonth(selectedMonth - 1)">&lt;</div>
+        <div className="text-xl">{{ getMonthName() }}</div>
+        <div className="cursor-pointer text-xl"
+             @click="changeMonth(selectedMonth + 1)">></div>
+      </div>
       <div className="grid grid-cols-7">
         <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Domingo</div>
         <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Segunda</div>
@@ -14,12 +21,12 @@
       </div>
       <div className="grid grid-cols-7">
         <div className="w-[6rem] h-[6rem] border-[0.5px] border-red-500 hover:bg-red-600"
-             v-for="marker in (new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay())"
+             v-for="marker in (new Date(this.date.getFullYear(), selectedMonth, 1).getDay())"
              v-bind:key="marker">
         </div>
         <div :className="['w-[6rem] h-[6rem] border-[0.5px] hover:bg-blue-300 cursor-pointer '
           + (day === selectedDay ? 'bg-blue-200' : '')]"
-             v-for="day in (new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate())"
+             v-for="day in (new Date(this.date.getFullYear(), selectedMonth + 1, 0).getDate())"
              v-bind:key="day"
              @click="changeDay(day)">
           {{ day }}
@@ -27,7 +34,9 @@
             <div v-for="obj in list"
                  v-bind:key="obj">
               <div v-if="new Date(obj.date).getDate() === day">
-                <div className="h-2 w-2 rounded-full bg-blue-400 mx-auto"></div>
+                <div v-if="new Date(obj.date).getMonth() === selectedMonth">
+                  <div className="h-2 w-2 rounded-full bg-blue-400 mx-auto"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -35,7 +44,7 @@
       </div>
       <div className="mt-4 w-[42rem] border-2 rounded-lg shadow-xl">
         <div className="text-xl m-2">
-          Dia Selecionado: {{ selectedDay }}
+          Dia Selecionado: {{ selectedDay }}/{{ selectedMonth + 1 }}
         </div>
         <div v-if="listInfo.length != 0">
           <div v-for="obj in listInfo"
@@ -77,6 +86,7 @@ export default {
     return {
       date: new Date(),
       selectedDay: 0,
+      selectedMonth: new Date().getMonth(),
       list: [
         {
           date: '2023-08-25T12:00:00',
@@ -111,16 +121,69 @@ export default {
       this.selectedDay = day;
       this.changeListInfo();
     },
+    changeMonth(month) {
+      this.selectedMonth = month;
+      if (month === 12) {
+        this.selectedMonth = 0;
+      }
+    },
     changeListInfo() {
       const l = [];
 
       this.list.forEach((obj) => {
-        if (new Date(obj.date).getDate() === this.selectedDay) {
-          l.push(obj);
+        if (new Date(obj.date).getMonth() === this.selectedMonth) {
+          if (new Date(obj.date).getDate() === this.selectedDay) {
+            l.push(obj);
+          }
         }
       });
 
       this.listInfo = l;
+    },
+    getMonthName() {
+      let monthName = '';
+      switch (this.selectedMonth) {
+        case 0:
+          monthName = 'Janeiro';
+          break;
+        case 1:
+          monthName = 'Fevereiro';
+          break;
+        case 2:
+          monthName = 'Março';
+          break;
+        case 3:
+          monthName = 'Abril';
+          break;
+        case 4:
+          monthName = 'Maio';
+          break;
+        case 5:
+          monthName = 'Junho';
+          break;
+        case 6:
+          monthName = 'Julho';
+          break;
+        case 7:
+          monthName = 'Agosto';
+          break;
+        case 8:
+          monthName = 'Setembro';
+          break;
+        case 9:
+          monthName = 'Outubro';
+          break;
+        case 10:
+          monthName = 'Novembro';
+          break;
+        case 11:
+          monthName = 'Dezembro';
+          break;
+        default:
+          console.log('Error.');
+      }
+
+      return monthName;
     },
   },
 };

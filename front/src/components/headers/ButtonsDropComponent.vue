@@ -66,7 +66,7 @@ export default {
   ],
   data() {
     return {
-      perfil: 'USER',
+      perfil: 'ADMIN',
     };
   },
   methods: {
