@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import HomeImagesComponent from '@/components/home/HomeImagesComponent.vue';
-import AboutTextComponent from '@/components/about/AboutTextComponent.vue';
-import AboutHistoryComponent from '@/components/about/AboutHistoryComponent.vue';
-import AboutInfraComponent from '@/components/about/AboutInfraComponent.vue';
+import HomeImagesComponent from '../components/home/HomeImagesComponent.vue';
+import AboutTextComponent from '../components/about/AboutTextComponent.vue';
+import AboutHistoryComponent from '../components/about/AboutHistoryComponent.vue';
+import AboutInfraComponent from '../components/about/AboutInfraComponent.vue';
 
 export default {
   name: 'AboutView',

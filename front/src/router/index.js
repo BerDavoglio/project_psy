@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import ProfissionalView from '../views/ProfissionalView.vue';
 import UserPerfilView from '../views/UserPerfilView.vue';
+import AdminEmployeeView from '../views/AdminEmployeeView.vue';
+import AdminNewEmployeeView from '../views/AdminNewEmployeeView.vue';
+import AdminNewBookView from '../views/AdminNewBookView.vue';
 import AdminPerfilView from '../views/AdminPerfilView.vue';
 import LoginView from '../views/LoginView.vue';
 
@@ -31,6 +34,21 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: AdminPerfilView,
+  },
+  {
+    path: '/admin/employee',
+    name: 'admin-employee',
+    component: AdminEmployeeView,
+  },
+  {
+    path: '/admin/book/new',
+    name: 'admin-new-book',
+    component: AdminNewBookView,
+  },
+  {
+    path: '/admin/employee/new',
+    name: 'admin-new-employee',
+    component: AdminNewEmployeeView,
   },
   {
     path: '/login',

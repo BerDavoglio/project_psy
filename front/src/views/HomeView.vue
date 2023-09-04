@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import HomeImagesComponent from '@/components/home/HomeImagesComponent.vue';
-import HomeAboutComponent from '@/components/home/HomeAboutComponent.vue';
-import HomeSpecialityComponent from '@/components/home/HomeSpecialityComponent.vue';
-import HomeRecomendationComponent from '@/components/home/HomeRecomendationComponent.vue';
+import HomeImagesComponent from '../components/home/HomeImagesComponent.vue';
+import HomeAboutComponent from '../components/home/HomeAboutComponent.vue';
+import HomeSpecialityComponent from '../components/home/HomeSpecialityComponent.vue';
+import HomeRecomendationComponent from '../components/home/HomeRecomendationComponent.vue';
 
 export default {
   name: 'HomeView',
