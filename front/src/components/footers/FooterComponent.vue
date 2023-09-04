@@ -3,7 +3,7 @@
 <template>
   <div>
     <div :className="[
-      'bg-black w-full pt-10 grid text-white '
+      'bg-blue-200 w-full pt-10 grid pb-12 '
       + (this.windowWidth > 768 ? 'grid-cols-3' : 'grid-cols-1')]">
       <part-one></part-one>
       <part-three></part-three>

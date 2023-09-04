@@ -8,7 +8,7 @@
       <div>
         <div :className="['text-2xl grid ' + (isCell ? 'grid-cols-1' : 'grid-cols-3')]">
           <div :className="['my-auto m-auto ' + (isCell ? '' : 'col-start-2')]">
-            <img alt="" className="max-h-[2rem] cursor-pointer" src="../../assets/images/logo.png"
+            <img alt="" className="max-h-[2.5rem] cursor-pointer" src="../../assets/images/logo.png"
               @click="this.$router.push({ name: `home` });" />
           </div>
           <div className="cursor-pointer">

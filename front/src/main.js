@@ -6,6 +6,8 @@ import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import {
   GiHamburgerMenu,
   IoCloseSharp,
+  BiFacebook,
+  BiInstagram,
 } from 'oh-vue-icons/icons';
 
 import TextClamp from 'vue3-text-clamp';
@@ -23,6 +25,8 @@ import App from './App.vue';
 addIcons(
   GiHamburgerMenu,
   IoCloseSharp,
+  BiFacebook,
+  BiInstagram,
 );
 
 createApp(App).component('v-icon', OhVueIcon)

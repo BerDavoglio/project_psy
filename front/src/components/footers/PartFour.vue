@@ -6,8 +6,11 @@
       Links
     </div>
     <div class="grid grid-cols-1 mx-6">
-      <div className="cursor-pointer mt-2" @click="goToLinkedin">
-        Link 1
+      <div className="cursor-pointer mt-2" @click="goToInstagram">
+        <v-icon name="bi-instagram"></v-icon> Instagram
+      </div>
+      <div className="cursor-pointer mt-2" @click="goToFacebook">
+        <v-icon name="bi-facebook"></v-icon> Facebook
       </div>
     </div>
   </div>
@@ -17,8 +20,11 @@
 export default {
   name: 'PartFour',
   methods: {
-    goToGoogle() {
-      window.open('https://www.google.com', '_blank');
+    goToInstagram() {
+      window.open('https://www.instagram.com/angimediclinica/', '_blank');
+    },
+    goToFacebook() {
+      window.open('https://www.facebook.com/AngimediClinicaMedica', '_blank');
     },
   },
 };
