@@ -1,7 +1,8 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="home-recomendation-component">
-    <div className="grid grid-cols-2 w-[50rem] m-auto">
+    <div :className="['grid gap-3 max-w-[50rem] m-auto '
+      + (isCell ? 'grid-cols-1' : 'grid-cols-2')]">
       <home-recomendation-box :obj="obj[0]"></home-recomendation-box>
       <home-recomendation-box :obj="obj[1]"></home-recomendation-box>
     </div>
@@ -16,6 +17,7 @@ export default {
   components: {
     HomeRecomendationBox,
   },
+  props: ['isCell'],
   data: () => ({
     obj: [
       {

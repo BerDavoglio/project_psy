@@ -1,9 +1,14 @@
 <template>
   <div class="home-images-component">
-    <div className="w-[50rem] m-auto">
-      <Carousel :itemsToShow="1.95" :wrapAround="true" :transition="500">
-        <Slide v-for="image in listImages" :key="image">
-          <img :src="image" alt='' className="w-96 h-64 bg-blue-400" />
+    <div className="max-w-[50rem] m-auto">
+      <Carousel :itemsToShow="(isCell ? 1.15 : 1.95)"
+                :wrapAround="true"
+                :transition="500">
+        <Slide v-for="image in listImages"
+               :key="image">
+          <img :src="image"
+               alt=''
+               className="max-w-96 bg-blue-400" />
         </Slide>
       </Carousel>
     </div>
@@ -20,6 +25,7 @@ export default {
     Carousel,
     Slide,
   },
+  props: ['isCell'],
   data: () => ({
     listImages: [
       'https://img.freepik.com/fotos-premium/ilustracao-abstrata-da-psicologia-da-imaginacao-ideal-para-fundos-de-papel-de-parede-generative-ai_893571-1805.jpg?w=2000',
@@ -71,5 +77,4 @@ export default {
 .carousel__slide--active {
   opacity: 1;
   transform: rotateY(0) scale(1.1);
-}
-</style>
+}</style>

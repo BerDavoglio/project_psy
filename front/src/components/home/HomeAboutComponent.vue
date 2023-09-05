@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div className="home-about-component w-[34rem] m-auto">
+  <div className="home-about-component max-w-[34rem] px-2 m-auto">
     <div className="font-bold text-left text-2xl">
       Sobre a Clínica:
     </div>

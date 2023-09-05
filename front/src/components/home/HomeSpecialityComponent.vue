@@ -2,9 +2,10 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="home-speciality-component">
-    <div className="w-full h-[28rem] bg-blue-200">
+    <div className="w-full pb-10 bg-blue-200">
       <div className="text-xl p-4 font-bold">Especialidades:</div>
-      <div className="grid grid-cols-3 w-[50rem] m-auto">
+      <div :className="['grid max-w-[50rem] m-auto '
+    + (isCell ? 'grid-cols-1 gap-3' : 'grid-cols-3')]">
         <home-speciality-box :obj="obj[0]"></home-speciality-box>
         <home-speciality-box :obj="obj[1]"></home-speciality-box>
         <home-speciality-box :obj="obj[2]"></home-speciality-box>
@@ -21,6 +22,7 @@ export default {
   components: {
     HomeSpecialityBox,
   },
+  props: ['isCell'],
   data: () => ({
     obj: [
       {
