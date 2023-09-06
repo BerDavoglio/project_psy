@@ -63,7 +63,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = `Angimed | ${to.name.charAt(0).toUpperCase() + to.name.slice(1)}`;
+  document.title = `Angimedi | ${to.name.charAt(0).toUpperCase() + to.name.slice(1)}`;
   next();
 });
 

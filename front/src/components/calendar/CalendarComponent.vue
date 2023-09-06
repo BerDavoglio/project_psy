@@ -182,6 +182,9 @@ export default {
       if (month === 12) {
         this.selectedMonth = 0;
       }
+      if (month === -1) {
+        this.selectedMonth = 11;
+      }
     },
     changeListInfo() {
       const l = [];

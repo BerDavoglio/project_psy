@@ -25,16 +25,8 @@ export default {
     Carousel,
     Slide,
   },
-  props: ['isCell'],
-  data: () => ({
-    listImages: [
-      'https://img.freepik.com/fotos-premium/ilustracao-abstrata-da-psicologia-da-imaginacao-ideal-para-fundos-de-papel-de-parede-generative-ai_893571-1805.jpg?w=2000',
-      'https://cdn.wallpapersafari.com/5/78/UEjsAt.jpg',
-      'https://e0.pxfuel.com/wallpapers/404/729/desktop-wallpaper-psychology.jpg',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmXfmknECyK3RLXVN_ZImIOvUF5P2EqyMd6A&usqp=CAU',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOH30B1uqFcEsXqmDjhscPEjzJR3s7shqmzA&usqp=CAU',
-    ],
-  }),
+  props: ['isCell', 'listImages'],
+  data: () => ({}),
 };
 </script>
 
@@ -77,4 +69,5 @@ export default {
 .carousel__slide--active {
   opacity: 1;
   transform: rotateY(0) scale(1.1);
-}</style>
+}
+</style>
