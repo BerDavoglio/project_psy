@@ -1,6 +1,6 @@
 <template>
   <div className="home font-mono">
-    <home-images-component  :isCell="this.isCell" :listImages="imagesCuritiba"  />
+    <home-images-component  :isCell="this.isCell" />
     <div className="h-10"></div>
     <home-about-component></home-about-component>
     <div className="h-10"></div>
@@ -29,14 +29,6 @@ export default {
     return {
       isCell: false,
       windowWidth: window.innerWidth,
-      imagesCuritiba: [
-        '/project_psy/img/2.432c3001.jpeg',
-        '/project_psy/img/3.9a214851.jpeg',
-        '/project_psy/img/4.951c3b6a.jpeg',
-        '/project_psy/img/1.ec59eb24.jpeg',
-        '/project_psy/img/5.ef8dbcf1.jpeg',
-        '/project_psy/img/6.ca235a71.jpeg',
-      ],
     };
   },
   methods: {

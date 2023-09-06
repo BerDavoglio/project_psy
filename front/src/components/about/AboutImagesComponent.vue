@@ -6,37 +6,37 @@
                 :transition="500">
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/2.jpeg"
+          <img src="../../assets/images/sjp/1.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/3.jpeg"
+          <img src="../../assets/images/sjp/2.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/4.jpeg"
+          <img src="../../assets/images/sjp/6.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/1.jpeg"
+          <img src="../../assets/images/sjp/3.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/5.jpeg"
+          <img src="../../assets/images/sjp/4.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
-          <img src="@/assets/images/cwb/6.jpeg"
+          <img src="../../assets/images/sjp/5.jpeg"
                alt=''
                className="max-w-96 bg-blue-400" />
         </Slide>
@@ -50,7 +50,7 @@ import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 
 export default {
-  name: 'HomeImagesComponent',
+  name: 'AboutImagesComponent',
   components: {
     Carousel,
     Slide,

@@ -7,12 +7,10 @@
     <div className="h-10"></div>
     <about-infra-component></about-infra-component>
     <div className="h-10"></div>
-    <home-images-component :isCell="isCell"
-                           :listImages="imagesCuritiba" />
+    <home-images-component :isCell="isCell" />
     <div>Images da Sede de Curitiba</div>
     <div className="h-10"></div>
-    <home-images-component :isCell="isCell"
-                           :listImages="imagesSJP" />
+    <about-images-component :isCell="isCell" />
     <div>Images da Sede de São José dos Pinhais</div>
     <div className="h-10"></div>
   </div>
@@ -20,6 +18,7 @@
 
 <script>
 import HomeImagesComponent from '../components/home/HomeImagesComponent.vue';
+import AboutImagesComponent from '../components/about/AboutImagesComponent.vue';
 import AboutTextComponent from '../components/about/AboutTextComponent.vue';
 import AboutHistoryComponent from '../components/about/AboutHistoryComponent.vue';
 import AboutInfraComponent from '../components/about/AboutInfraComponent.vue';
@@ -28,6 +27,7 @@ export default {
   name: 'AboutView',
   components: {
     HomeImagesComponent,
+    AboutImagesComponent,
     AboutTextComponent,
     AboutHistoryComponent,
     AboutInfraComponent,
@@ -36,22 +36,6 @@ export default {
     return {
       isCell: false,
       windowWidth: window.innerWidth,
-      imagesCuritiba: [
-        '/project_psy/img/2.432c3001.jpeg',
-        '/project_psy/img/3.9a214851.jpeg',
-        '/project_psy/img/4.951c3b6a.jpeg',
-        '/project_psy/img/1.ec59eb24.jpeg',
-        '/project_psy/img/5.ef8dbcf1.jpeg',
-        '/project_psy/img/6.ca235a71.jpeg',
-      ],
-      imagesSJP: [
-        '/project_psy/img/1.99994414.jpeg',
-        '/project_psy/img/2.1035141f.jpeg',
-        '/project_psy/img/3.435c5c31.jpeg',
-        '/project_psy/img/4.eee69d4c.jpeg',
-        '/project_psy/img/5.ea97eb8b.jpeg',
-        '/project_psy/img/6.99994414.jpeg',
-      ],
     };
   },
   methods: {
