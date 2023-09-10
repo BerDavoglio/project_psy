@@ -1,8 +1,12 @@
 <template>
   <div class="profissional-view">
     <div className="text-2xl font-bold">Profissionais:</div>
-    <div v-for="(obj, index) in listObj" :key="obj" className="font-mono">
-      <profissional-box-component :obj="obj" :i="index" />
+    <div v-for="(obj, index) in listObj"
+         :key="obj"
+         className="font-mono">
+      <profissional-box-component :obj="obj"
+                                  :i="index"
+                                  :isCell="isCell" />
     </div>
   </div>
 </template>
@@ -39,7 +43,36 @@ export default {
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ea aspernatur voluptatibus itaque illum eaque dolore minima fuga natus! Possimus dignissimos, dolor quos repellat odio commodi totam omnis non eum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis delectus iusto aut accusantium necessitatibus ut voluptas aliquid soluta maiores fuga rerum, illum minima corrupti quasi non id voluptatibus. Dolorem, dolore?',
         },
       ],
+      isCell: false,
+      windowWidth: window.innerWidth,
     };
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
+    verifyResize(i) {
+      console.log(i);
+      if (i < 768) {
+        return true;
+      } return false;
+    },
+  },
+  watch: {
+    windowWidth(newWidth) {
+      this.isCell = this.verifyResize(newWidth);
+    },
+  },
+  beforeMount() {
+    this.isCell = this.verifyResize(window.innerWidth);
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    });
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
   },
 };
 </script>
