@@ -2,7 +2,7 @@
 <template>
   <div class="login-view">
     <div className="mx-auto my-36">
-      <div className="w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
+      <div className="max-w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
         <div className="text-bold text-[3rem] m-4">
           {{ isLogin ? 'Login' : 'Cadastrar' }}
         </div>
@@ -31,22 +31,22 @@
                  placeholder="Senha"
                  className="w-[90%] h-10 rounded-lg p-2 mb-2">
         </div>
-        <div className="grid grid-cols-2 mx-20 my-5">
-          <div className="mx-auto w-36 p-3
+        <div className="grid grid-cols-2 mx-10 my-5">
+          <div className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-green-500 hover:bg-green-700"
             @click="login()">
             {{ isLogin ? 'Entrar' : 'Cadastrar' }}
           </div>
           <div v-if="isLogin"
-               className="mx-auto w-36 p-3
+               className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-yellow-500 hover:bg-yellow-700"
                @click="isLogin = !isLogin">
             Registrar
           </div>
           <div v-else
-               className="mx-auto w-36 p-3
+               className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-yellow-500 hover:bg-yellow-700"
                @click="isLogin = !isLogin">

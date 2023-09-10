@@ -7,7 +7,7 @@
         <div className="text-2xl"><strong>{{ conquest.points }}</strong></div>
         <div>pontos</div>
       </div>
-      <div className="w-[30rem] m-auto">
+      <div className="max-w-[30rem] m-auto">
         <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
           <div class="bg-blue-200 h-4 rounded-full"
                style="width: 30%">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div className="my-4">
-        <div className="w-96 h-24 mx-auto
+        <div className="w-80 py-6 mx-auto
           flex place-items-center
           rounded-xl shadow-lg shadow-black/30">
           <div className="w-full">
@@ -62,7 +62,7 @@
       </div>
       <div className="mx-auto my-10">
         <div className="text-bold text-xl">Informações do Usuário:</div>
-        <div className="w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
+        <div className="max-w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
           <input v-model="user.name"
                  placeholder="Nome"
                  className="w-[90%] h-8 rounded-lg p-2 mb-2">
