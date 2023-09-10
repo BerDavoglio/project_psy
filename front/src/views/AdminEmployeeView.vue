@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="admin-employee-view">
@@ -13,13 +14,12 @@
       </div>
       <div v-for="obj in this.list"
            v-bind:key="obj">
-        <div className="max-w-[56rem] h-48 bg-blue-200
-          rounded-3xl my-4 shadow-xl shadow-black/30
-          grid grid-cols-6 mx-auto">
+        <div :className="['max-w-[56rem] bg-blue-200 rounded-3xl my-4 shadow-xl shadow-black/30 grid mx-auto ' +
+          (isCell ? 'grid-cols-1' : 'grid-cols-6')]">
           <img className="m-auto rounded-full h-28 w-28"
                :src="obj.image"
                alt="" />
-          <div className="col-span-4 m-2">
+          <div :className="['m-2 ' + (isCell ? '' : 'col-span-4')]">
             <div>
               <div className="font-bold text-xl">
                 {{ obj.name }}
@@ -79,12 +79,39 @@ export default {
           image: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png',
         },
       ],
+      isCell: false,
+      windowWidth: window.innerWidth,
     };
   },
   methods: {
     goPage(route) {
       this.$router.push({ name: route });
     },
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
+    verifyResize(i) {
+      console.log(i);
+      if (i < 768) {
+        return true;
+      } return false;
+    },
+  },
+  watch: {
+    windowWidth(newWidth) {
+      this.isCell = this.verifyResize(newWidth);
+    },
+  },
+  beforeMount() {
+    this.isCell = this.verifyResize(window.innerWidth);
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    });
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
   },
 };
 </script>

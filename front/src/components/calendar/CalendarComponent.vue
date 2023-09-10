@@ -2,29 +2,29 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="calendar-component">
-    <div className="w-[42rem] m-auto">
-      <div className="grid grid-cols-7 mb-2">
-        <div className="col-start-3 cursor-pointer text-xl"
+    <div className="max-w-[42rem] m-auto">
+      <div :className="['grid mb-2 '] + (this.isCell ? 'grid-cols-3' : 'grid-cols-7')">
+        <div :className="['cursor-pointer text-xl ' + (this.isCell ? '' : 'col-start-3')]"
              @click="changeMonth(selectedMonth - 1)">&lt;</div>
         <div className="text-xl">{{ getMonthName() }}</div>
         <div className="cursor-pointer text-xl"
              @click="changeMonth(selectedMonth + 1)">></div>
       </div>
       <div className="grid grid-cols-7">
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Domingo</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Segunda</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Terça</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Quarta</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Quinta</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Sexta</div>
-        <div className="w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Sábado</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Domingo</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Segunda</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Terça</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Quarta</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Quinta</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Sexta</div>
+        <div className="max-w-[6rem] h-[1rem] text-[0.7rem] border-[0.5px]">Sábado</div>
       </div>
       <div className="grid grid-cols-7">
-        <div className="w-[6rem] h-[6rem] border-[0.5px] border-red-500 hover:bg-red-600"
+        <div className="max-w-[6rem] h-[6rem] border-[0.5px] border-red-500 hover:bg-red-600"
              v-for="marker in (new Date(this.date.getFullYear(), selectedMonth, 1).getDay())"
              v-bind:key="marker">
         </div>
-        <div :className="['w-[6rem] h-[6rem] border-[0.5px] hover:bg-blue-300 cursor-pointer '
+        <div :className="['max-w-[6rem] h-[6rem] border-[0.5px] hover:bg-blue-300 cursor-pointer '
           + (day === selectedDay ? 'bg-blue-200' : '')]"
              v-for="day in (new Date(this.date.getFullYear(), selectedMonth + 1, 0).getDate())"
              v-bind:key="day"
@@ -42,21 +42,25 @@
           </div>
         </div>
       </div>
-      <div className="mt-4 w-[42rem] border-2 rounded-lg shadow-xl">
+      <div className="mt-4 max-w-[42rem] border-2 rounded-lg shadow-xl">
         <div className="text-xl m-2">
           Dia Selecionado: {{ selectedDay }}/{{ selectedMonth + 1 }}
         </div>
         <div v-if="listInfo.length != 0">
           <div v-for="obj in listInfo"
                v-bind:key="obj">
-            <div className="grid grid-cols-4 text-justify bg-blue-200 rounded-xl m-2">
+            <div :className="['grid text-justify bg-blue-200 rounded-xl m-2 '
+              + (this.isCell ? 'grid-cols-1' : 'grid-cols-4')]">
               <div className="m-2">
+                <strong>Paciente: </strong>
                 {{ obj.patient.name }}
               </div>
               <div className="m-2">
+                <strong>Horário marcado: </strong>
                 {{ new Date(obj.date).getHours() }}hr {{ new Date(obj.date).getMinutes() }}min
               </div>
               <div className="m-2">
+                <strong>Descrição: </strong>
                 {{ obj.description }}
               </div>
               <div className="my-2 mx-auto">
@@ -82,6 +86,7 @@
 <script>
 export default {
   name: 'CalendarComponent',
+  props: ['isCell'],
   data() {
     return {
       date: new Date(),

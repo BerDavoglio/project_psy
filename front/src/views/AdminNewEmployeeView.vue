@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="admin-new-employee-view">
-    <div className="w-96 mx-auto mb-20 rounded-xl shadow-2xl p-4">
+    <div className="max-w-96 mx-auto mb-20 rounded-xl shadow-2xl p-4">
       <div className="m-10 text-2xl font-bold">Cadastrar novo Funcionário</div>
       <input v-model="doctor.name"
              placeholder="Nome"

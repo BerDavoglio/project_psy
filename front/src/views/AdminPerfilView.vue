@@ -2,7 +2,7 @@
 <template>
   <div class="admin-perfil-view">
     <div>
-      <calendar-component />
+      <calendar-component :isCell="isCell" />
       <div className="w-48 p-2 bg-green-300 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
            @click="goPage('admin-new-book')">
@@ -10,7 +10,7 @@
       </div>
       <div className="w-48 p-2 bg-blue-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-      @click="goPage('admin-employee')">
+           @click="goPage('admin-employee')">
         Gerenciar Funcionários
       </div>
     </div>
@@ -27,12 +27,39 @@ export default {
   },
   data() {
     return {
+      isCell: false,
+      windowWidth: window.innerWidth,
     };
   },
   methods: {
     goPage(route) {
       this.$router.push({ name: route });
     },
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
+    verifyResize(i) {
+      console.log(i);
+      if (i < 768) {
+        return true;
+      } return false;
+    },
+  },
+  watch: {
+    windowWidth(newWidth) {
+      this.isCell = this.verifyResize(newWidth);
+    },
+  },
+  beforeMount() {
+    this.isCell = this.verifyResize(window.innerWidth);
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    });
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
   },
 };
 </script>
