@@ -43,7 +43,7 @@
         Como conseguir pontos?
       </div>
       <div v-if="showTip">
-        <div className="w-96 bg-blue-200 mx-auto
+        <div className="w-80 bg-blue-200 mx-auto
           rounded-xl shadow-lg shadow-black/30
           p-4">
           <div className="text-lg font-bold">Para conseguir mais pontos, é necessário:</div>
