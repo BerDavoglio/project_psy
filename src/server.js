@@ -16,6 +16,12 @@ app.listen(process.env.APP_PORT, async () => {
     await User.create({
       name: 'admin',
       email: 'admin@gmail.com',
+      address: 'rua admin, 123',
+      cellphone: '41900000000',
+      birth: new Date(),
+      cpf: '00000000000',
+      role: 'admin',
+      points: 1000000,
       password: 'admin123',
     });
   } else {

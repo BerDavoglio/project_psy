@@ -24,6 +24,30 @@ export default class User extends Model {
           },
         },
       },
+      address: {
+        type: Sequelize.STRING,
+        defaultValue: '',
+      },
+      cellphone: {
+        type: Sequelize.STRING,
+        defaultValue: 0,
+      },
+      birth: {
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+      },
+      cpf: {
+        type: Sequelize.STRING,
+        defaultValue: 0,
+      },
+      role: {
+        type: Sequelize.ENUM('user', 'admin'),
+        defaultValue: 'user',
+      },
+      points: {
+        type: Sequelize.BIGINT,
+        defaultValue: 0,
+      },
       password_hash: {
         type: Sequelize.STRING,
         defaultValue: '',

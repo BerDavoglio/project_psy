@@ -4,7 +4,7 @@ import User from '../models/User/User_models';
 export default async (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization) {
-    res.status(401)
+    return res.status(401)
       .json({ errors: ['Login Required'] });
   }
 
@@ -15,6 +15,7 @@ export default async (req, res, next) => {
     const {
       id,
       email,
+      role,
     } = data;
 
     const user = await User.findOne({
@@ -30,10 +31,11 @@ export default async (req, res, next) => {
 
     req.userId = id;
     req.userEmail = email;
+    req.userRole = role;
 
     return next();
   } catch (e) {
     return res.status(401)
-      .json({ errors: ['Invalid Token'] });
+      .json({ errors: ['[LOGINREQUIRED] Invalid Token'] });
   }
 };

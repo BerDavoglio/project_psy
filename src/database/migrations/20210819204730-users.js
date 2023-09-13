@@ -16,6 +16,30 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      address: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cellphone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      birth: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      cpf: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      role: {
+        type: Sequelize.ENUM('user', 'admin'),
+        allowNull: false,
+      },
+      points: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+      },
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false,

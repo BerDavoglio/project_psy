@@ -3,12 +3,11 @@ import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
 
 import User from '../models/User/User_models';
-import ConquestUser from '../models/User/ConquestUser_models';
-import ConquestItem from '../models/User/ConquestItem_models';
-import Calendar from '../models/Admin/Calendar';
-import Doctor from '../models/Admin/Doctor';
+import Conquest from '../models/User/Conquest_models';
+import Calendar from '../models/Admin/Calendar_models';
+import Doctor from '../models/Admin/Doctor_models';
 
-const models = [User, ConquestUser, ConquestItem, Calendar, Doctor];
+const models = [User, Conquest, Calendar, Doctor];
 const connection = new Sequelize(databaseConfig);
 
 connection.authenticate()

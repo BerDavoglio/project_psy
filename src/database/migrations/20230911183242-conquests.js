@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('conquest_items', {
+    await queryInterface.createTable('conquests', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      conquest: {
+      description: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -28,6 +28,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('conquest_items');
+    await queryInterface.dropTable('conquests');
   },
 };

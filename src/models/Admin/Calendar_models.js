@@ -7,9 +7,9 @@ export default class Calendar extends Model {
         type: Sequelize.DATE,
         defaultValue: new Date(),
       },
-      patient: {
-        type: Sequelize.STRING,
-        defaultValue: '',
+      patient_id: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       description: {
         type: Sequelize.STRING,
