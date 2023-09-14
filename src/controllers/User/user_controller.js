@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import jwt from 'jsonwebtoken';
 import User from '../../models/User/User_models';
 
 class UserController {
@@ -53,14 +54,9 @@ class UserController {
     }
   }
 
-  // Update the user:
-  async update(req, res) {
+  // Show the user itself:
+  async showRole(req, res) {
     try {
-      if (req.body.role || req.body.points) {
-        return res.status(401)
-          .json({ errors: ['Unauthorized'] });
-      }
-
       const id = req.userId;
       if (!id) {
         return res.status(400).json({ errors: ['ID not Found'] });
@@ -71,9 +67,46 @@ class UserController {
         return res.status(400).json({ errors: ['User not Found'] });
       }
 
+      return res.json(user.role);
+    } catch (err) {
+      return res.status(400).json({ errors: err.message });
+    }
+  }
+
+  // Update the user:
+  async update(req, res) {
+    try {
+      if (req.body.role || req.body.points) {
+        return res.status(401)
+          .json({ errors: ['Unauthorized'] });
+      }
+
+      const idreq = req.userId;
+      if (!idreq) {
+        return res.status(400).json({ errors: ['ID not Found'] });
+      }
+
+      const user = await User.findByPk(idreq);
+      if (!user) {
+        return res.status(400).json({ errors: ['User not Found'] });
+      }
+
       const newUser = await user.update(req.body);
 
-      return res.json(newUser);
+      const {
+        id,
+        email,
+        role,
+      } = newUser;
+      const token = jwt.sign({
+        id,
+        email,
+        role,
+      }, process.env.TOKEN_SECRET, {
+        expiresIn: process.env.TOKEN_EXPIRATION,
+      });
+
+      return res.json([newUser, token]);
     } catch (err) {
       return res.status(400).json({ errors: err.message });
     }
@@ -111,7 +144,7 @@ class UserController {
         points: (parseInt(user.points, 10) + parseInt(req.body.points, 10)),
       });
 
-      return res.json(newUser);
+      return res.json({ message: `${req.body.points} points was added to ${newUser.name}` });
     } catch (err) {
       return res.status(400).json({ errors: err.message });
     }

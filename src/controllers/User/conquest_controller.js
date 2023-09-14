@@ -21,7 +21,11 @@ class ConquestController {
         return res.status(400).json({ errors: ['[CONQUEST] ID not Found'] });
       }
 
-      const conquest = await Conquest.findAll();
+      const conquest = await Conquest.findAll({
+        order: [
+          ['points', 'ASC'],
+        ],
+      });
       if (!conquest) {
         return res.status(400).json({ errors: ['Conquests not Found'] });
       }

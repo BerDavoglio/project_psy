@@ -12,7 +12,7 @@ export default class Calendar extends Model {
         defaultValue: 0,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         defaultValue: '',
       },
       doctor_id: {

@@ -13,9 +13,18 @@
            @click="goPage('admin-employee')">
         Gerenciar Funcionários
       </div>
+      <div className="w-48 p-2 bg-red-200 my-10 mx-auto
+      rounded-xl cursor-pointer shadow-xl"
+           @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
+        Logout
+      </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { useLoginStore } from '../store/store';
+</script>
 
 <script>
 import CalendarComponent from '../components/calendar/CalendarComponent.vue';
@@ -52,6 +61,9 @@ export default {
   },
   beforeMount() {
     this.isCell = this.verifyResize(window.innerWidth);
+    if (useLoginStore().getRole !== 'admin') {
+      this.$router.push({ name: 'login' });
+    }
   },
   mounted() {
     this.$nextTick(() => {

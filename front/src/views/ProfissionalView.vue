@@ -1,15 +1,26 @@
 <template>
   <div class="profissional-view">
-    <div className="text-2xl font-bold">Profissionais:</div>
-    <div v-for="(obj, index) in listObj"
-         :key="obj"
-         className="font-mono">
-      <profissional-box-component :obj="obj"
-                                  :i="index"
-                                  :isCell="isCell" />
+    <div className="text-2xl font-bold">
+      Profissionais:
+    </div>
+    <div v-if="useProfissionalStore().getList.length > 0">
+      <div v-for="(obj, index) in useProfissionalStore().getList"
+           :key="obj"
+           className="font-mono">
+        <profissional-box-component :obj="obj"
+                                    :i="index"
+                                    :isCell="isCell" />
+      </div>
+    </div>
+    <div v-else className="py-36 font-bold text-2xl">
+      Infelizmente, nenhum doutor(a) foi cadastrado!
     </div>
   </div>
 </template>
+
+<script setup>
+import { useProfissionalStore } from '../store/store';
+</script>
 
 <script>
 import ProfissionalBoxComponent from '../components/profissional/ProfissionalBoxComponent.vue';
@@ -21,28 +32,6 @@ export default {
   },
   data() {
     return {
-      listObj: [
-        {
-          img: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png',
-          name: 'Jorge Gabriel',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ea aspernatur voluptatibus itaque illum eaque dolore minima fuga natus! Possimus dignissimos, dolor quos repellat odio commodi totam omnis non eum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis delectus iusto aut accusantium necessitatibus ut voluptas aliquid soluta maiores fuga rerum, illum minima corrupti quasi non id voluptatibus. Dolorem, dolore?',
-        },
-        {
-          img: 'https://img.freepik.com/vetores-premium/perfil-de-avatar-de-homem-no-icone-redondo_24640-14044.jpg',
-          name: 'Cleiton da Silva',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ea aspernatur voluptatibus itaque illum eaque dolore minima fuga natus! Possimus dignissimos, dolor quos repellat odio commodi totam omnis non eum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis delectus iusto aut accusantium necessitatibus ut voluptas aliquid soluta maiores fuga rerum, illum minima corrupti quasi non id voluptatibus. Dolorem, dolore?',
-        },
-        {
-          img: 'https://img.freepik.com/vetores-premium/retrato-feminino-foto-de-perfil-de-mulher-avatar-de-cor_81894-6400.jpg?w=2000',
-          name: 'Lorante Jus Carpinteira',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ea aspernatur voluptatibus itaque illum eaque dolore minima fuga natus! Possimus dignissimos, dolor quos repellat odio commodi totam omnis non eum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis delectus iusto aut accusantium necessitatibus ut voluptas aliquid soluta maiores fuga rerum, illum minima corrupti quasi non id voluptatibus. Dolorem, dolore?',
-        },
-        {
-          img: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png',
-          name: 'Amanda',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ea aspernatur voluptatibus itaque illum eaque dolore minima fuga natus! Possimus dignissimos, dolor quos repellat odio commodi totam omnis non eum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis delectus iusto aut accusantium necessitatibus ut voluptas aliquid soluta maiores fuga rerum, illum minima corrupti quasi non id voluptatibus. Dolorem, dolore?',
-        },
-      ],
       isCell: false,
       windowWidth: window.innerWidth,
     };
@@ -63,8 +52,11 @@ export default {
       this.isCell = this.verifyResize(newWidth);
     },
   },
-  beforeMount() {
+  async beforeMount() {
     this.isCell = this.verifyResize(window.innerWidth);
+
+    const store = useProfissionalStore();
+    await store.requestProfissional();
   },
   mounted() {
     this.$nextTick(() => {

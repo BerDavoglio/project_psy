@@ -2,6 +2,9 @@
 
 import { createApp } from 'vue';
 
+import { createPinia } from 'pinia';
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
+
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import {
   GiHamburgerMenu,
@@ -16,11 +19,14 @@ import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
 
 import router from './router';
-import store from './store';
+import store from './store/store';
 
 import './assets/tailwind.css';
 
 import App from './App.vue';
+
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedState);
 
 addIcons(
   GiHamburgerMenu,
@@ -31,7 +37,8 @@ addIcons(
 
 createApp(App).component('v-icon', OhVueIcon)
   .use(VCalendar, {})
-  .use(TextClamp)
+  .use(pinia)
   .use(store)
+  .use(TextClamp)
   .use(router)
   .mount('#app');

@@ -8,7 +8,7 @@ export default class Doctor extends Model {
         defaultValue: '',
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         defaultValue: '',
       },
       specialization: {

@@ -28,7 +28,7 @@
             w-[8rem]" @click="goPage('profissionals')">
           Profissionais
         </div>
-        <div v-if="perfil === 'USER'" className="
+        <div v-if="useLoginStore().getRole === 'user'" className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
@@ -36,7 +36,7 @@
             w-[8rem]" @click="goPage('perfil')">
           Perfil
         </div>
-        <div v-if="perfil === 'ADMIN'" className="
+        <div v-if="useLoginStore().getRole === 'admin'" className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
@@ -44,7 +44,7 @@
             w-[8rem]" @click="goPage('admin')">
           Perfil Administrativo
         </div>
-        <div v-if="perfil === ''" className="
+        <div v-if="useLoginStore().getRole === ''" className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
@@ -57,6 +57,10 @@
   </div>
 </template>
 
+<script setup>
+import { useLoginStore } from '../../store/store';
+</script>
+
 <script>
 export default {
   name: 'ButtonsDropComponent',
@@ -66,7 +70,6 @@ export default {
   ],
   data() {
     return {
-      perfil: '',
     };
   },
   methods: {

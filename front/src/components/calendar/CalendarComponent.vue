@@ -31,7 +31,7 @@
              @click="changeDay(day)">
           {{ day }}
           <div className="flex place-items-center justify-center ">
-            <div v-for="obj in list"
+            <div v-for="obj in useCalendarStore().getList"
                  v-bind:key="obj">
               <div v-if="new Date(obj.date).getDate() === day">
                 <div v-if="new Date(obj.date).getMonth() === selectedMonth">
@@ -39,6 +39,15 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="mb-2">
+        <div className="cursor-pointer text-xl">
+          <div className="w-full p-2 text-sm bg-green-200 my-2 mx-auto
+      rounded-xl cursor-pointer shadow-xl"
+               @click="useCalendarStore().requestCalendar()">
+            Recarregar Calendário
           </div>
         </div>
       </div>
@@ -53,7 +62,10 @@
               + (this.isCell ? 'grid-cols-1' : 'grid-cols-4')]">
               <div className="m-2">
                 <strong>Paciente: </strong>
-                {{ obj.patient.name }}
+                {{ obj.patient_id }}
+                <br />
+                <strong>Doutor(a): </strong>
+                {{ obj.doctor_id }}
               </div>
               <div className="m-2">
                 <strong>Horário marcado: </strong>
@@ -61,11 +73,16 @@
               </div>
               <div className="m-2">
                 <strong>Descrição: </strong>
-                {{ obj.description }}
+                {{ obj.id }}
               </div>
               <div className="my-2 mx-auto">
-                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400">Editar</div>
-                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400">Apagar</div>
+                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400">
+                  Editar
+                </div>
+                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400"
+                     @click="deleteCalendar(obj)">
+                  Apagar
+                </div>
               </div>
             </div>
           </div>
@@ -83,6 +100,10 @@
   </div>
 </template>
 
+<script setup>
+import { useCalendarStore } from '../../store/store';
+</script>
+
 <script>
 export default {
   name: 'CalendarComponent',
@@ -92,88 +113,6 @@ export default {
       date: new Date(),
       selectedDay: 0,
       selectedMonth: new Date().getMonth(),
-      list: [
-        {
-          date: '2023-08-25T12:00:00',
-          patient: {
-            id: 112,
-            name: 'Joãozinho',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-08-28T12:00:00',
-          patient: {
-            id: 154,
-            name: 'Laura',
-          },
-          description: 'Consulta com a Doutora Y; Fazer exames X, Y e Z',
-        },
-        {
-          date: '2023-08-12T12:00:00',
-          patient: {
-            id: 2,
-            name: 'Vitoria',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-12T12:00:00',
-          patient: {
-            id: 2,
-            name: 'Vitoria',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-12T12:00:00',
-          patient: {
-            id: 2,
-            name: 'Juliana',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-07T12:00:00',
-          patient: {
-            id: 2,
-            name: 'Abigahil',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-23T12:00:00',
-          patient: {
-            id: 2,
-            name: 'Aaaaaaaaa',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-24T05:00:00',
-          patient: {
-            id: 2,
-            name: 'Vitoria',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-24T05:00:00',
-          patient: {
-            id: 2,
-            name: 'Bernardo',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-        {
-          date: '2023-09-24T05:00:00',
-          patient: {
-            id: 2,
-            name: 'Nicole',
-          },
-          description: 'Consulta com a Doutora X',
-        },
-      ],
       listInfo: [],
     };
   },
@@ -194,7 +133,7 @@ export default {
     changeListInfo() {
       const l = [];
 
-      this.list.forEach((obj) => {
+      useCalendarStore().getList.forEach((obj) => {
         if (new Date(obj.date).getMonth() === this.selectedMonth) {
           if (new Date(obj.date).getDate() === this.selectedDay) {
             l.push(obj);
@@ -249,6 +188,13 @@ export default {
 
       return monthName;
     },
+    async deleteCalendar(obj) {
+      await useCalendarStore().deleteCalendar(obj);
+      this.changeListInfo();
+    },
+  },
+  async beforeCreate() {
+    await useCalendarStore().requestCalendar();
   },
 };
 </script>

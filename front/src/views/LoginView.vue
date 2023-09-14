@@ -35,7 +35,7 @@
           <div className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-green-500 hover:bg-green-700"
-            @click="login()">
+               @click="login()">
             {{ isLogin ? 'Entrar' : 'Cadastrar' }}
           </div>
           <div v-if="isLogin"
@@ -58,6 +58,10 @@
   </div>
 </template>
 
+<script setup>
+import { useLoginStore } from '../store/store';
+</script>
+
 <script>
 export default {
   name: 'LoginPerfilView',
@@ -65,22 +69,18 @@ export default {
     return {
       email: '',
       password: '',
-      user: {
-        name: '',
-        email: '',
-        password: '',
-        birth: '',
-        convenio: '',
-      },
       isLogin: true,
     };
   },
   methods: {
-    login() {
-      if (this.email === 'user@gmail.com') {
-        this.goPage('perfil');
-      } else if (this.email === 'admin@gmail.com') {
-        this.goPage('admin');
+    async login() {
+      const store = useLoginStore();
+      await store.requestLogin(this.email, this.password);
+      if (store.getRole === 'admin') {
+        this.$router.push({ name: 'admin' });
+      }
+      if (store.getRole === 'user') {
+        this.$router.push({ name: 'perfil' });
       }
     },
     goPage(route) {

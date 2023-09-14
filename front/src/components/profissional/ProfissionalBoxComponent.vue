@@ -8,13 +8,17 @@
     hover:scale-[110%] transform transition duration-50 hover:z-10">
       <img :className="['m-auto rounded-full h-40 w-40 '
         + (i % 2 == 0 ? '' : 'order-last')]"
-           :src="this.obj.img"
+           :src="this.obj.image"
            alt="" />
       <div className="col-span-4 m-2">
         <div className="font-bold text-xl">
           {{ this.obj.name }}
         </div>
-        <div>{{ this.obj.text }}</div>
+        <div className="italic uppercase">
+          {{ this.obj.specialization }}
+        </div>
+        <text-clamp :text='this.obj.description'
+                  :max-lines='6' />
       </div>
     </div>
     <div v-else
