@@ -2,11 +2,14 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
 
+import { toast } from 'vue3-toastify';
+
 export const useLoginStore = defineStore('loginStore', {
   state: () => ({
     token: '',
     role: '',
     perfil: {},
+    listPerfilsID: [],
   }),
   getters: {
     getToken() {
@@ -18,9 +21,12 @@ export const useLoginStore = defineStore('loginStore', {
     getPerfil() {
       return this.perfil;
     },
+    getListPerfilsID() {
+      return this.listPerfilsID;
+    },
   },
   actions: {
-    async requestLogin(email, password) {
+    async requestLogin(email, password, func) {
       try {
         axios
           .post('http://127.0.0.1:3096/jwt/', {
@@ -30,9 +36,46 @@ export const useLoginStore = defineStore('loginStore', {
           .then((response) => {
             this.token = response.data.token;
           }).then(() => {
-            this.requestRole();
-          }).then(() => {
             this.requestPerfil();
+          })
+          .then(() => {
+            if (this.getPerfil.role === 'admin') {
+              func('admin');
+            }
+            if (this.getPerfil.role === 'user') {
+              func('perfil');
+            }
+            this.requestRole();
+          })
+          .catch((err) => {
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
+    async createPerfil(obj, func) {
+      try {
+        axios
+          .post(
+            'http://127.0.0.1:3096/users/',
+            obj,
+          ).then(async (response) => {
+            this.requestLogin(response.data.email, obj.password, func);
+          }).then(() => {
+            toast.success('Perfil criado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          }).catch((err) => {
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {
@@ -48,13 +91,20 @@ export const useLoginStore = defineStore('loginStore', {
             { headers: { Authorization: `Bearer ${this.token}` } },
           )
           .then((response) => {
+            toast.success('Perfil atualizado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
             const [per, tok] = response.data;
             this.perfil = per;
             this.token = tok;
             window.location.reload();
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {
@@ -91,6 +141,21 @@ export const useLoginStore = defineStore('loginStore', {
         return error;
       }
     },
+    async requestPerfilIDNAME() {
+      try {
+        axios
+          .get(
+            'http://127.0.0.1:3096/users/idname/',
+            { headers: { Authorization: `Bearer ${this.token}` } },
+          )
+          .then((response) => {
+            this.listPerfilsID = response.data;
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
     async logout(func) {
       try {
         this.token = '';
@@ -108,10 +173,14 @@ export const useLoginStore = defineStore('loginStore', {
 export const useProfissionalStore = defineStore('profissionalStore', {
   state: () => ({
     list: [],
+    listProfissionalsIDNAME: [],
   }),
   getters: {
     getList() {
       return this.list;
+    },
+    getListProfissionalsIDNAME() {
+      return this.listProfissionalsIDNAME;
     },
   },
   actions: {
@@ -127,6 +196,47 @@ export const useProfissionalStore = defineStore('profissionalStore', {
         return error;
       }
     },
+    async requestProfissionalsIDNAME() {
+      try {
+        axios
+          .get('http://127.0.0.1:3096/admin/doctors/docidname')
+          .then((response) => {
+            this.listProfissionalsIDNAME = response.data;
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
+    async createProfissional(obj, func) {
+      try {
+        axios
+          .post(
+            'http://127.0.0.1:3096/admin/doctors/',
+            obj,
+            { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
+          )
+          .then(() => {
+            func();
+          })
+          .then(() => {
+            toast.success('Profissional criado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            this.requestProfissional();
+          })
+          .catch((err) => {
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
     async updateProfissional(obj, func) {
       try {
         axios
@@ -136,12 +246,20 @@ export const useProfissionalStore = defineStore('profissionalStore', {
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
-            this.requestProfissional();
-          }).then(() => {
             func();
           })
+          .then(() => {
+            toast.success('Profissional atualizado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            this.requestProfissional();
+          })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {
@@ -156,12 +274,19 @@ export const useProfissionalStore = defineStore('profissionalStore', {
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
+            toast.success('Profissional deletado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
             this.requestProfissional();
           }).then(() => {
             func();
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {
@@ -197,6 +322,35 @@ export const useCalendarStore = defineStore('calendarStore', {
         return error;
       }
     },
+    async createCalendar(obj, func) {
+      try {
+        axios
+          .post(
+            'http://127.0.0.1:3096/admin/calendars/',
+            obj,
+            { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
+          )
+          .then(() => {
+            toast.success('Calendário criado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            this.requestCalendar();
+          })
+          .then(() => {
+            func();
+          })
+          .catch((err) => {
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
     async updateCalendar(obj) {
       try {
         axios
@@ -206,10 +360,17 @@ export const useCalendarStore = defineStore('calendarStore', {
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
+            toast.success('Calendário atualizado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
             this.requestCalendar();
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {
@@ -224,10 +385,17 @@ export const useCalendarStore = defineStore('calendarStore', {
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
+            toast.success('Calendário deletado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
             this.requestCalendar();
           })
           .catch((err) => {
-            console.log(err);
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
           });
         return 0;
       } catch (error) {

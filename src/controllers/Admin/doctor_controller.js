@@ -27,6 +27,22 @@ class DoctorController {
     }
   }
 
+  // Show all:
+  async indexOnlyId(req, res) {
+    try {
+      const doctors = await Doctor.findAll({
+        attributes: ['id', 'name'],
+      });
+      if (!doctors) {
+        return res.status(400).json({ errors: ['Doctors not Found'] });
+      }
+
+      return res.json(doctors);
+    } catch (err) {
+      return res.status(400).json({ errors: err.message });
+    }
+  }
+
   // Update:
   async update(req, res) {
     try {

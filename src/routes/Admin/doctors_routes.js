@@ -8,6 +8,7 @@ const router = new Router();
 
 router.post('/', loginRequired, isAdmin, doctorController.store); // Create
 router.get('/', doctorController.show); // Get All
+router.get('/docidname/', doctorController.indexOnlyId); // Get All
 router.put('/:id', loginRequired, isAdmin, doctorController.update); // Update
 router.delete('/:id', loginRequired, isAdmin, doctorController.delete); // Delete
 

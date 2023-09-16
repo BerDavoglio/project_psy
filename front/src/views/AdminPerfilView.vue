@@ -48,7 +48,6 @@ export default {
       this.windowWidth = window.innerWidth;
     },
     verifyResize(i) {
-      console.log(i);
       if (i < 768) {
         return true;
       } return false;

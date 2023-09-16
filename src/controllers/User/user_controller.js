@@ -54,6 +54,39 @@ class UserController {
     }
   }
 
+  // Show all:
+  async index(req, res) {
+    try {
+      const users = await User.findAll();
+      if (!users) {
+        return res.status(400).json({ errors: ['User not Found'] });
+      }
+
+      return res.json(users);
+    } catch (err) {
+      return res.status(400).json({ errors: err.message });
+    }
+  }
+
+  // Show all:
+  async indexOnlyId(req, res) {
+    try {
+      const users = await User.findAll({
+        attributes: ['id', 'name'],
+        where: {
+          role: 'user',
+        },
+      });
+      if (!users) {
+        return res.status(400).json({ errors: ['User not Found'] });
+      }
+
+      return res.json(users);
+    } catch (err) {
+      return res.status(400).json({ errors: err.message });
+    }
+  }
+
   // Show the user itself:
   async showRole(req, res) {
     try {

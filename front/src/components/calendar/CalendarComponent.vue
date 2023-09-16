@@ -62,10 +62,10 @@
               + (this.isCell ? 'grid-cols-1' : 'grid-cols-4')]">
               <div className="m-2">
                 <strong>Paciente: </strong>
-                {{ obj.patient_id }}
+                {{ useLoginStore().getListPerfilsID.find(pat => pat.id === obj.patient_id).name }}
                 <br />
                 <strong>Doutor(a): </strong>
-                {{ obj.doctor_id }}
+                {{ useProfissionalStore().getListProfissionalsIDNAME.find(doc => doc.id === obj.doctor_id).name }}
               </div>
               <div className="m-2">
                 <strong>Horário marcado: </strong>
@@ -73,7 +73,7 @@
               </div>
               <div className="m-2">
                 <strong>Descrição: </strong>
-                {{ obj.id }}
+                {{ obj.description }}
               </div>
               <div className="my-2 mx-auto">
                 <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400">
@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { useCalendarStore } from '../../store/store';
+import { useCalendarStore, useLoginStore, useProfissionalStore } from '../../store/store';
 </script>
 
 <script>
@@ -195,6 +195,8 @@ export default {
   },
   async beforeCreate() {
     await useCalendarStore().requestCalendar();
+    await useLoginStore().requestPerfilIDNAME();
+    await useProfissionalStore().requestProfissionalsIDNAME();
   },
 };
 </script>
