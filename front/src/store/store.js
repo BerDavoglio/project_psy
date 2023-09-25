@@ -237,11 +237,11 @@ export const useProfissionalStore = defineStore('profissionalStore', {
         return error;
       }
     },
-    async updateProfissional(obj, func) {
+    async updateProfissional(id, obj, func) {
       try {
         axios
           .put(
-            `http://127.0.0.1:3096/admin/doctors/${obj.id}`,
+            `http://127.0.0.1:3096/admin/doctors/${id}`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -331,14 +331,14 @@ export const useCalendarStore = defineStore('calendarStore', {
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
+            func();
+          })
+          .then(() => {
+            this.requestCalendar();
             toast.success('Calendário criado com sucesso!', {
               autoClose: 5000,
               position: toast.POSITION.BOTTOM_RIGHT,
             });
-            this.requestCalendar();
-          })
-          .then(() => {
-            func();
           })
           .catch((err) => {
             toast.error(err.response.data.errors, {
@@ -351,11 +351,11 @@ export const useCalendarStore = defineStore('calendarStore', {
         return error;
       }
     },
-    async updateCalendar(obj) {
+    async updateCalendar(id, obj, func) {
       try {
         axios
           .put(
-            `http://127.0.0.1:3096/admin/calendars/${obj.id}`,
+            `http://127.0.0.1:3096/admin/calendars/${id}`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -365,6 +365,9 @@ export const useCalendarStore = defineStore('calendarStore', {
               position: toast.POSITION.BOTTOM_RIGHT,
             });
             this.requestCalendar();
+          })
+          .then(() => {
+            func();
           })
           .catch((err) => {
             toast.error(err.response.data.errors, {

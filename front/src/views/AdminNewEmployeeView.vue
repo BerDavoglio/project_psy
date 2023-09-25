@@ -18,7 +18,7 @@
              className="w-full h-8 border-2 rounded-sm p-2 mb-2">
       <div className="w-48 p-2 bg-green-200 hover:bg-green-400 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="createDoc()">
+           @click="createEditDoc()">
         Salvar Funcionário
       </div>
     </div>
@@ -32,27 +32,51 @@ import { useProfissionalStore } from '../store/store';
 <script>
 export default {
   name: 'AdminNewEmployeeView',
+  params: ['id'],
   components: {
   },
   data() {
     return {
       doctor: {
-        name: '',
-        specialization: '',
-        description: '',
-        image: '',
+        name: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).name
+          : ''),
+        specialization: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq, max-len
+          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).specialization
+          : ''),
+        image: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).image
+          : ''),
+        description: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq, max-len
+          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).description
+          : ''),
       },
     };
   },
   methods: {
-    async createDoc() {
+    async createEditDoc() {
       const store = useProfissionalStore();
-      await store.createProfissional(
-        this.doctor,
-        () => {
-          this.goPage('admin-employee');
-        },
-      );
+
+      if (this.$route.params.id) {
+        await store.updateProfissional(
+          this.$route.params.id,
+          this.doctor,
+          () => {
+            this.goPage('admin-employee');
+          },
+        );
+      } else {
+        await store.createProfissional(
+          this.doctor,
+          () => {
+            this.goPage('admin-employee');
+          },
+        );
+      }
     },
     goPage(route) {
       this.$router.push({ name: route });

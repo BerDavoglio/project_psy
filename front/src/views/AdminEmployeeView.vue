@@ -34,7 +34,7 @@
             </div>
             <div className="flex flex-col place-content-center">
               <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400"
-                   @click="goPage('admin-new-employee')">
+                   @click="this.$router.push({ name: 'admin-new-employee', params: { id: obj.id } });">
                 Editar
               </div>
               <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400"

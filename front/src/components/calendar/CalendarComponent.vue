@@ -76,7 +76,8 @@
                 {{ obj.description }}
               </div>
               <div className="my-2 mx-auto">
-                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400">
+                <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400"
+                     @click="this.$router.push({ name: 'admin-new-book', params: { id: obj.id } });">
                   Editar
                 </div>
                 <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400"

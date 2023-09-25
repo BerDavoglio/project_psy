@@ -41,12 +41,12 @@ const routes = [
     component: AdminEmployeeView,
   },
   {
-    path: '/admin/book/new',
+    path: '/admin/book/new/:id?',
     name: 'admin-new-book',
     component: AdminNewBookView,
   },
   {
-    path: '/admin/employee/new',
+    path: '/admin/employee/new/:id?',
     name: 'admin-new-employee',
     component: AdminNewEmployeeView,
   },

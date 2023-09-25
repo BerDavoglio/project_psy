@@ -32,7 +32,7 @@
       <VueDatePicker v-model="book.date" />
       <div className="w-48 p-2 bg-green-200 hover:bg-green-400 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="createCalendar()">
+           @click="createEditCalendar()">
         Salvar Consulta
       </div>
     </div>
@@ -42,43 +42,65 @@
 <script setup>
 import VueDatePicker from '@vuepic/vue-datepicker';
 import { useCalendarStore, useLoginStore, useProfissionalStore } from '../store/store';
+import '@vuepic/vue-datepicker/dist/main.css';
 </script>
 
 <script>
-import '@vuepic/vue-datepicker/dist/main.css';
-
 export default {
   name: 'AdminNewBookView',
   components: { VueDatePicker },
+  params: ['id'],
   data() {
     return {
       book: {
-        patient_id: '',
-        doctor_id: '',
-        date: '',
-        description: '',
+        patient_id: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).patient_id
+          : ''),
+        doctor_id: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).doctor_id
+          : ''),
+        date: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).date
+          : ''),
+        description: (this.$route.params.id
+          // eslint-disable-next-line eqeqeq
+          ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).description
+          : ''),
       },
     };
   },
   methods: {
-    async createCalendar() {
+    async createEditCalendar() {
       const store = useCalendarStore();
-      await store.createCalendar(
-        this.book,
-        () => {
-          this.goPage('admin');
-        },
-      );
+
+      if (this.$route.params.id) {
+        await store.updateCalendar(
+          this.$route.params.id,
+          this.book,
+          () => {
+            this.goPage('admin');
+          },
+        );
+      } else {
+        await store.createCalendar(
+          this.book,
+          () => {
+            this.goPage('admin');
+          },
+        );
+      }
     },
     goPage(route) {
       this.$router.push({ name: route });
     },
   },
   async beforeMount() {
-    const storePerfil = useLoginStore();
-    await storePerfil.requestPerfilIDNAME();
-    const storeProfissional = useProfissionalStore();
-    await storeProfissional.requestProfissionalsIDNAME();
+    await useLoginStore().requestPerfilIDNAME();
+    await useProfissionalStore().requestProfissionalsIDNAME();
+    await useCalendarStore().requestCalendar();
   },
 };
 </script>
