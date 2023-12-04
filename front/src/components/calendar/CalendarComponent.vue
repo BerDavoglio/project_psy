@@ -35,7 +35,7 @@
                  v-bind:key="obj">
               <div v-if="new Date(obj.date).getDate() === day">
                 <div v-if="new Date(obj.date).getMonth() === selectedMonth">
-                  <div className="h-2 w-2 rounded-full bg-blue-400 mx-auto"></div>
+                  <div className="h-2 w-2 rounded-full bg-blue-400 mx-auto" @click="changeDay(day)"></div>
                 </div>
               </div>
             </div>
