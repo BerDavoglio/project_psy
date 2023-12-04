@@ -28,7 +28,7 @@
             Lista de Conquistas:
           </div>
           <div className="my-4"
-           v-for="(obj, index) in useConquestStore().getList"
+               v-for="(obj, index) in useConquestStore().getList"
                v-bind:key="obj">
             Conquista Nº {{ index + 1 }}:
             <br />
@@ -72,21 +72,38 @@
       <div className="mx-auto my-10">
         <div className="text-bold text-xl">Informações do Usuário:</div>
         <div className="max-w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
-          <input v-model="user.name"
-                 placeholder="Nome"
-                 className="w-[90%] h-8 rounded-lg p-2 mb-2">
-          <input v-model="user.email"
-                 placeholder="E-mail"
-                 className="w-[90%] h-8 rounded-lg p-2 mb-2">
-          <input v-model="user.address"
-                 placeholder="Endereço"
-                 className="w-[90%] h-8 rounded-lg p-2 mb-2">
-          <input v-model="user.birth"
-                 placeholder="Aniversário"
-                 className="w-[90%] h-8 rounded-lg p-2 mb-2">
-          <input v-model="user.cpf"
-                 placeholder="CPF"
-                 className="w-[90%] h-8 rounded-lg p-2 mb-2">
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.name"
+                   placeholder="Nome"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.email"
+                   placeholder="E-mail"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.address"
+                   placeholder="Endereço"
+                   className="h-10 w-full px-3">
+          </div>
+          <!-- COLOCAR MASCARA NO CELULAR -->
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.cellphone"
+                   placeholder="Telefone"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2">
+            <VueDatePicker v-model="user.birth"
+                           format="dd/MM/yyyy"
+                           :enable-time-picker="false"
+                           input-class-name="h-10 rounded-[0.3rem]
+                           border-[0.1rem] border-gray-400" />
+          </div>
           <div className="mx-auto w-36 p-1
             rounded-xl text-white
             cursor-pointer bg-green-500 hover:bg-green-700"
@@ -119,6 +136,7 @@ export default {
         birth: useLoginStore().getPerfil.birth,
         address: useLoginStore().getPerfil.address,
         cpf: useLoginStore().getPerfil.cpf,
+        cellphone: useLoginStore().getPerfil.cellphone,
       },
       showTip: false,
       value: 30,

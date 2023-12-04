@@ -8,39 +8,65 @@
           {{ isLogin ? 'Login' : 'Cadastrar' }}
         </div>
         <div v-if="isLogin">
-          <input v-model="email"
-                 placeholder="E-mail"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
-          <input v-model="password"
-                 type='password'
-                 placeholder="Senha"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
+          <div className="w-full border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem] mb-2">
+            <input v-model="email"
+                   placeholder="E-mail"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-full border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem] mb-2">
+            <input v-model="password"
+                   placeholder="Senha"
+                   type='password'
+                   className="h-10 w-full px-3">
+          </div>
         </div>
         <div v-else>
-          <input v-model="user.name"
-                 placeholder="Nome"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
-          <input v-model="user.email"
-                 placeholder="E-mail"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
-          <input v-model="user.address"
-                 placeholder="Endereço"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
-          <input v-model="user.cellphone"
-                 placeholder="Telefone"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.name"
+                   placeholder="Nome"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.email"
+                   placeholder="E-mail"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.address"
+                   placeholder="Endereço"
+                   className="h-10 w-full px-3">
+          </div>
+          <!-- COLOCAR MASCARA NO CELULAR -->
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.cellphone"
+                   placeholder="Telefone"
+                   className="h-10 w-full px-3">
+          </div>
           <div className="w-[90%] m-auto">
             <VueDatePicker v-model="user.birth"
                            format="dd/MM/yyyy"
                            :enable-time-picker="false"
-                           input-class-name="h-10 rounded-lg" />
+                           input-class-name="h-10 rounded-[0.3rem]
+                           border-[0.1rem] border-gray-400" />
           </div>
-          <input v-model="user.cpf"
-                 placeholder="CPF"
-                 className="w-[90%] h-10 rounded-lg p-2 my-2">
-          <input v-model="user.password"
-                 placeholder="Senha"
-                 className="w-[90%] h-10 rounded-lg p-2 mb-2">
+          <!-- COLOCAR MASCARA NO CPF -->
+          <div className="w-[90%] m-auto my-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.cpf"
+                   placeholder="CPF"
+                   className="h-10 w-full px-3">
+          </div>
+          <div className="w-[90%] m-auto mb-2
+          border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
+            <input v-model="user.password"
+                   placeholder="Senha"
+                   type="password"
+                   className="h-10 w-full px-3">
+          </div>
         </div>
         <div className="grid grid-cols-2 mx-10 my-5">
           <div className="mx-auto w-24 p-3
