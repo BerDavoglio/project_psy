@@ -8,37 +8,37 @@
                :key="image">
           <img src="@/assets/images/cwb/2.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="@/assets/images/cwb/3.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="@/assets/images/cwb/4.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="@/assets/images/cwb/1.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="@/assets/images/cwb/5.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="@/assets/images/cwb/6.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 h-[20rem] bg-blue-400 object-cover" />
         </Slide>
       </Carousel>
     </div>

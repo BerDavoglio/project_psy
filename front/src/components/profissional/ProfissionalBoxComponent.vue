@@ -6,9 +6,9 @@
     rounded-3xl my-4 mx-auto shadow-xl shadow-black/30
     grid grid-cols-5
     hover:scale-[110%] transform transition duration-50 hover:z-10">
-      <img :className="['m-auto rounded-full h-40 w-40 '
+      <img :className="['m-auto rounded-full h-40 w-40 my-4 object-cover  '
         + (i % 2 == 0 ? '' : 'order-last')]"
-           :src="this.obj.image"
+           :src="['http://localhost:3096' + this.obj.image]"
            alt="" />
       <div className="col-span-4 m-2">
         <div className="font-bold text-xl">

@@ -17,11 +17,11 @@ module.exports = {
         allowNull: false,
       },
       specialization: {
-        type: Sequelize.ENUM('psicologia', 'psiquiatria', 'neuropsiquiatria'),
+        type: Sequelize.ENUM('Psiquiatria', 'Psiquiatria Forense'),
         allowNull: false,
       },
       image: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       created_at: {

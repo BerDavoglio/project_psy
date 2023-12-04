@@ -5,7 +5,12 @@ class DoctorController {
   // Creating User:
   async store(req, res) {
     try {
-      const newDoctor = await Doctor.create(req.body);
+      const newDoctor = await Doctor.create({
+        name: req.body.name,
+        specialization: req.body.specialization,
+        image: req.imagePath.replace(/\\/g, '/'),
+        description: req.body.description,
+      });
 
       return res.json(newDoctor);
     } catch (err) {

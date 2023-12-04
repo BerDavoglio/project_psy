@@ -8,6 +8,10 @@ import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import {
   GiHamburgerMenu,
@@ -25,11 +29,18 @@ import router from './router';
 import store from './store/store';
 
 import './assets/tailwind.css';
+// eslint-disable-next-line import/extensions
+import 'vuetify/styles';
 
 import App from './App.vue';
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedState);
+
+const vuetify = createVuetify({
+  components,
+  directives,
+});
 
 addIcons(
   GiHamburgerMenu,
@@ -49,5 +60,6 @@ createApp(App).component('v-icon', OhVueIcon)
     },
   )
   .use(router)
+  .use(vuetify)
   .component('VueDatePicker', VueDatePicker)
   .mount('#app');

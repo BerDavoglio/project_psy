@@ -12,11 +12,11 @@ export default class Doctor extends Model {
         defaultValue: '',
       },
       specialization: {
-        type: Sequelize.ENUM('psicologia', 'psiquiatria', 'neuropsiquiatria'),
+        type: Sequelize.ENUM('Psiquiatria', 'Psiquiatria Forense'),
         defaultValue: '',
       },
       image: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         defaultValue: '',
       },
     }, {

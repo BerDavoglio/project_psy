@@ -15,34 +15,8 @@
       <div v-if="useProfissionalStore().getList.length > 0">
         <div v-for="obj in useProfissionalStore().getList"
              v-bind:key="obj">
-          <div :className="['max-w-[56rem] bg-blue-200 rounded-3xl my-4 shadow-xl shadow-black/30 grid mx-auto ' +
-            (isCell ? 'grid-cols-1' : 'grid-cols-6')]">
-            <img className="m-auto rounded-full h-28 w-28"
-                 :src="obj.image"
-                 alt="" />
-            <div :className="['m-2 ' + (isCell ? '' : 'col-span-4')]">
-              <div>
-                <div className="font-bold text-xl">
-                  {{ obj.name }}
-                </div>
-                <div className="font-bold">
-                  {{ obj.specialization }}
-                </div>
-              </div>
-              <text-clamp :text='obj.description'
-                          :max-lines='5' />
-            </div>
-            <div className="flex flex-col place-content-center">
-              <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400"
-                   @click="this.$router.push({ name: 'admin-new-employee', params: { id: obj.id } });">
-                Editar
-              </div>
-              <div className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400"
-                   @click="useProfissionalStore().deleteProfissional(obj)">
-                Apagar
-              </div>
-            </div>
-          </div>
+          <admin-employee-box :obj="obj"
+                              :isCell="isCell" />
         </div>
       </div>
       <div v-else
@@ -55,12 +29,14 @@
 
 <script setup>
 import { useProfissionalStore } from '../store/store';
+import AdminEmployeeBox from '../components/admin/AdminEmployeeBox.vue';
 </script>
 
 <script>
 export default {
   name: 'AdminEmployeeView',
   components: {
+    AdminEmployeeBox,
   },
   data() {
     return {

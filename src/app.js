@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 import './database';
 
@@ -23,6 +24,7 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(cors());
+    this.app.use('/images', express.static(path.join(__dirname, './images')));
   }
 
   routes() {

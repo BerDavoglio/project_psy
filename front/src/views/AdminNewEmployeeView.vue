@@ -1,21 +1,33 @@
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="admin-new-employee-view">
     <div className="w-[100%] max-w-[28rem] mx-auto mb-20 rounded-xl shadow-2xl p-4">
-      <div className="m-10 text-2xl font-bold">Cadastrar novo Funcionário</div>
-      <input v-model="doctor.name"
-             placeholder="Nome"
-             className="w-full h-8 border-2 rounded-sm p-2 mb-2">
-      <!-- MUDAR INPUT PARA SELECT -->
-      <input v-model="doctor.specialization"
-             placeholder="Especialidade"
-             className="w-full h-8 border-2 rounded-sm p-2 mb-2">
-      <input v-model="doctor.description"
-             placeholder="Descrição"
-             className="w-full h-8 border-2 rounded-sm p-2 mb-2">
-      <input v-model="doctor.image"
-             placeholder="Imagem (URL)"
-             className="w-full h-8 border-2 rounded-sm p-2 mb-2">
+      <div className="m-10 text-2xl font-bold">
+        {{ this.$route.params.id ? 'Editar Funcionário' : 'Cadastrar novo Funcionário' }}
+      </div>
+      <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
+        <input v-model="doctor.name"
+               placeholder="Nome"
+               className="h-10 w-full px-3">
+      </div>
+      <div className="h-[40px] mb-2">
+        <v-select v-model="doctor.specialization"
+                  density="compact"
+                  :items="['Psiquiatria', 'Psiquiatria Forense']"
+                  variant="outlined" />
+      </div>
+      <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
+        <input v-model="doctor.description"
+               placeholder="Descrição"
+               className="h-10 w-full px-3">
+      </div>
+      <div>
+        <input placeholder="Imagem (URL)"
+               type="file"
+               @change="onFileSelected"
+               className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2 h-10 px-3">
+      </div>
       <div className="w-48 p-2 bg-green-200 hover:bg-green-400 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
            @click="createEditDoc()">
@@ -37,22 +49,19 @@ export default {
   },
   data() {
     return {
+      selectedFile: null,
       doctor: {
         name: (this.$route.params.id
-          // eslint-disable-next-line eqeqeq
-          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).name
+          ? useProfissionalStore().getList
+            .find((obj) => obj.id === this.$route.params.id).name
           : ''),
         specialization: (this.$route.params.id
-          // eslint-disable-next-line eqeqeq, max-len
-          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).specialization
-          : ''),
-        image: (this.$route.params.id
-          // eslint-disable-next-line eqeqeq
-          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).image
-          : ''),
+          ? useProfissionalStore().getList
+            .find((obj) => obj.id === this.$route.params.id).specialization
+          : 'Especialidade'),
         description: (this.$route.params.id
-          // eslint-disable-next-line eqeqeq, max-len
-          ? useProfissionalStore().getList.find((obj) => obj.id == this.$route.params.id).description
+          ? useProfissionalStore().getList
+            .find((obj) => obj.id === this.$route.params.id).description
           : ''),
       },
     };
@@ -61,17 +70,23 @@ export default {
     async createEditDoc() {
       const store = useProfissionalStore();
 
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+      formData.append('name', this.doctor.name);
+      formData.append('specialization', this.doctor.specialization);
+      formData.append('description', this.doctor.description);
+
       if (this.$route.params.id) {
         await store.updateProfissional(
           this.$route.params.id,
-          this.doctor,
+          formData,
           () => {
             this.goPage('admin-employee');
           },
         );
       } else {
         await store.createProfissional(
-          this.doctor,
+          formData,
           () => {
             this.goPage('admin-employee');
           },
@@ -80,6 +95,10 @@ export default {
     },
     goPage(route) {
       this.$router.push({ name: route });
+    },
+    onFileSelected(event) {
+      // eslint-disable-next-line prefer-destructuring
+      this.selectedFile = event.target.files[0];
     },
   },
 };

@@ -8,37 +8,37 @@
                :key="image">
           <img src="../../assets/images/sjp/1.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="../../assets/images/sjp/2.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="../../assets/images/sjp/6.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="../../assets/images/sjp/3.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="../../assets/images/sjp/4.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
         <Slide v-for="image in 1"
                :key="image">
           <img src="../../assets/images/sjp/5.jpeg"
                alt=''
-               className="max-w-96 bg-blue-400" />
+               className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
       </Carousel>
     </div>
