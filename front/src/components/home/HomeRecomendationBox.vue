@@ -13,7 +13,7 @@
                   :max-lines='5'
                   className="italic text-justify text-sm my-2" />
       <div className="text-right">
-        {{ this.obj.name }}
+        {{ this.obj.name }}{{ this.obj.rate != '' ? (' - ⭐' + this.obj.rate) : '' }}
       </div>
     </div>
   </div>
