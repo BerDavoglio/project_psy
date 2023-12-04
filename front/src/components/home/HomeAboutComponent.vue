@@ -6,18 +6,24 @@
     </div>
     <div className="text-justify">
       <div className="my-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut soluta numquam, repellendus asperiores dolor
-        accusamus deserunt excepturi dolore aspernatur, vero esse error sequi? Nisi exercitationem earum beatae nobis? A.
+        A Angimedi Clínica Médica tem sido uma instituição emblemática desde sua fundação no ano de 2000 pela Dra. Gisele
+        Romagna Stocco. Especializada em psiquiatria, a clínica foi concebida com uma visão clara e apaixonada: oferecer
+        atendimento de saúde de alta qualidade e humanizado para seus pacientes.
       </div>
       <div className="my-2">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, expedita tempore similique vitae exercitationem
-        dolore delectus dignissimos est, veritatis praesentium sapiente veniam repudiandae? Optio nobis nam ipsam maiores
-        aspernatur magnam!
+        A trajetória da Dra. Gisele Romagna Stocco, graduada pela Universidade Federal do Paraná e especialista em
+        psiquiatria com título de especialista em Medicina Legal e Perícia Médica, está marcada por uma busca incansável
+        para fornecer um cuidado integral e personalizado para cada pessoa que busca ajuda na Angimedi.
       </div>
       <div className="my-2">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatibus provident molestias officia?
-        Exercitationem harum, tenetur consequuntur, laborum voluptas ut autem omnis ab quibusdam animi non eos maxime error
-        facere!
+        O objetivo central da clínica é garantir que cada paciente encontre não apenas o tratamento adequado para suas
+        necessidades psiquiátricas, mas também um ambiente acolhedor e de apoio, onde se sintam compreendidos e
+        valorizados.
+      </div>
+      <div className="my-2">
+        Assim, a história da Angimedi Clínica Médica é moldada por um compromisso constante com a excelência no
+        atendimento psiquiátrico, impulsionado pelo desejo genuíno de fazer a diferença na vida daqueles que buscam ajuda
+        para superar seus desafios mentais e emocionais.
       </div>
     </div>
   </div>

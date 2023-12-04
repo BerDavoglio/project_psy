@@ -4,7 +4,7 @@
   <div>
     <div @mouseover="hover = true" @mouseleave="hover = false" className="w-56 h-80 m-auto
             shadow-xl shadow-black/30
-            text-white">
+            text-white mt-2">
       <div v-if="hover == false" :style="{ backgroundImage: `url(${this.obj.img})` }" className="
           rounded-md w-full h-full text-2xl
           flex place-items-center justify-center font-bold uppercase

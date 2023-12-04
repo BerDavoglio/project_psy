@@ -3,9 +3,9 @@
        className="font-mono">
     <about-text-component></about-text-component>
     <div className="h-10"></div>
-    <about-history-component></about-history-component>
-    <div className="h-10"></div>
     <about-infra-component></about-infra-component>
+    <div className="h-10"></div>
+    <about-history-component></about-history-component>
     <div className="h-10"></div>
     <home-images-component :isCell="isCell" />
     <div>Images da Sede de Curitiba</div>

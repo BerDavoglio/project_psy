@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="login-view">
@@ -11,6 +12,7 @@
                  placeholder="E-mail"
                  className="w-[90%] h-10 rounded-lg p-2 mb-2">
           <input v-model="password"
+                 type='password'
                  placeholder="Senha"
                  className="w-[90%] h-10 rounded-lg p-2 mb-2">
         </div>
