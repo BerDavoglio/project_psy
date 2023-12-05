@@ -26,12 +26,12 @@ export default {
     obj: [
       {
         title: 'Psiquiatria',
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta molestias, aspernatur recusandae, deserunt doloremque quibusdam quos itaque dolorem aperiam ut pariatur nostrum voluptatem assumenda illum nam officiis, error atque. Reiciendis!',
+        text: 'A Psiquiatria é parte da medicina que estuda e trata transtornos mentais. Seu objetivo principal é oferecer cuidados abrangentes a pessoas com diferentes condições psiquiátricas, desde ansiedade e depressão até transtornos mais complexos como esquizofrenia e bipolaridade.',
         img: 'https://www.infoescola.com/wp-content/uploads/2008/07/psiquiatria_454154401.jpg',
       },
       {
         title: 'Psiquiatria Forense',
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta molestias, aspernatur recusandae, deserunt doloremque quibusdam quos itaque dolorem aperiam ut pariatur nostrum voluptatem assumenda illum nam officiis, error atque. Reiciendis!',
+        text: 'A Psiquiatria Forense une psiquiatria e leis, aplicando princípios psiquiátricos em questões legais. Psiquiatras forenses dão depoimentos em tribunais, explicando avaliações de saúde mental aos profissionais jurídicos.',
         img: 'https://eephcfmusp.org.br/portal/online/wp-content/uploads/sites/2/2023/09/Imagem3.png',
       },
     ],

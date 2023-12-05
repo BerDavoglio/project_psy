@@ -7,18 +7,18 @@
     <div className="h-10"></div>
     <about-history-component></about-history-component>
     <div className="h-10"></div>
-    <home-images-component :isCell="isCell" />
+    <about-images-one-component :isCell="isCell" />
     <div>Images da Sede de Curitiba</div>
     <div className="h-10"></div>
-    <about-images-component :isCell="isCell" />
+    <about-images-two-component :isCell="isCell" />
     <div>Images da Sede de São José dos Pinhais</div>
     <div className="h-10"></div>
   </div>
 </template>
 
 <script>
-import HomeImagesComponent from '../components/home/HomeImagesComponent.vue';
-import AboutImagesComponent from '../components/about/AboutImagesComponent.vue';
+import AboutImagesOneComponent from '../components/about/AboutImagesOneComponent.vue';
+import AboutImagesTwoComponent from '../components/about/AboutImagesTwoComponent.vue';
 import AboutTextComponent from '../components/about/AboutTextComponent.vue';
 import AboutHistoryComponent from '../components/about/AboutHistoryComponent.vue';
 import AboutInfraComponent from '../components/about/AboutInfraComponent.vue';
@@ -26,8 +26,8 @@ import AboutInfraComponent from '../components/about/AboutInfraComponent.vue';
 export default {
   name: 'AboutView',
   components: {
-    HomeImagesComponent,
-    AboutImagesComponent,
+    AboutImagesOneComponent,
+    AboutImagesTwoComponent,
     AboutTextComponent,
     AboutHistoryComponent,
     AboutInfraComponent,
