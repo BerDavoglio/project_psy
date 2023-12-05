@@ -7,20 +7,24 @@
         <div className="text-xl font-bold">
           Gerenciamento de Funcionários
         </div>
-        <div className="py-2 px-8 m-2 max-w-[56rem] mx-auto rounded-lg cursor-pointer bg-green-400"
-             @click="goPage('admin-new-employee')">
+        <div
+          className="py-2 px-8 m-2 max-w-[56rem] mx-auto rounded-lg cursor-pointer bg-green-400"
+          @click="goPage('admin-new-employee')">
           Criar Novo
         </div>
       </div>
       <div v-if="useProfissionalStore().getList.length > 0">
-        <div v-for="obj in useProfissionalStore().getList"
-             v-bind:key="obj">
-          <admin-employee-box :obj="obj"
-                              :isCell="isCell" />
+        <div
+          v-for="obj in useProfissionalStore().getList"
+          v-bind:key="obj">
+          <admin-employee-box
+            :obj="obj"
+            :isCell="isCell" />
         </div>
       </div>
-      <div v-else
-           className="py-48 font-bold text-2xl">
+      <div
+        v-else
+        className="py-48 font-bold text-2xl">
         Infelizmente, nenhum doutor(a) foi cadastrado!
       </div>
     </div>

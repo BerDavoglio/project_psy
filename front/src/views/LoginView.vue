@@ -9,84 +9,102 @@
         </div>
         <div v-if="isLogin">
           <div className="w-full border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem] mb-2">
-            <input v-model="email"
-                   placeholder="E-mail"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="email"
+              placeholder="E-mail"
+              className="h-10 w-full px-3">
           </div>
           <div className="w-full border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem] mb-2">
-            <input v-model="password"
-                   placeholder="Senha"
-                   type='password'
-                   className="h-10 w-full px-3">
+            <input
+              v-model="password"
+              placeholder="Senha"
+              type='password'
+              className="h-10 w-full px-3">
           </div>
         </div>
         <div v-else>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.name"
-                   placeholder="Nome"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.name"
+              placeholder="Nome"
+              className="h-10 w-full px-3">
           </div>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.email"
-                   placeholder="E-mail"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.email"
+              placeholder="E-mail"
+              className="h-10 w-full px-3">
           </div>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.address"
-                   placeholder="Endereço"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.address"
+              placeholder="Endereço"
+              className="h-10 w-full px-3">
           </div>
           <!-- COLOCAR MASCARA NO CELULAR -->
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.cellphone"
-                   placeholder="Telefone"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.cellphone"
+              placeholder="Telefone"
+              className="h-10 w-full px-3">
           </div>
           <div className="w-[90%] m-auto">
-            <VueDatePicker v-model="user.birth"
-                           format="dd/MM/yyyy"
-                           :enable-time-picker="false"
-                           input-class-name="h-10 rounded-[0.3rem]
+            <VueDatePicker
+              v-model="user.birth"
+              format="dd/MM/yyyy"
+              :enable-time-picker="false"
+              input-class-name="h-10 rounded-[0.3rem]
                            border-[0.1rem] border-gray-400" />
           </div>
           <!-- COLOCAR MASCARA NO CPF -->
-          <div className="w-[90%] m-auto my-2
+          <div
+            className="w-[90%] m-auto my-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.cpf"
-                   placeholder="CPF"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.cpf"
+              placeholder="CPF"
+              className="h-10 w-full px-3">
           </div>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.password"
-                   placeholder="Senha"
-                   type="password"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.password"
+              placeholder="Senha"
+              type="password"
+              className="h-10 w-full px-3">
           </div>
         </div>
         <div className="grid grid-cols-2 mx-10 my-5">
-          <div className="mx-auto w-24 p-3
+          <div
+            className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-green-500 hover:bg-green-700"
-               @click="isLogin ? login() : signin()">
+            @click="isLogin ? login() : signin()">
             {{ isLogin ? 'Entrar' : 'Cadastrar' }}
           </div>
-          <div v-if="isLogin"
-               className="mx-auto w-24 p-3
+          <div
+            v-if="isLogin"
+            className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-yellow-500 hover:bg-yellow-700"
-               @click="isLogin = !isLogin">
+            @click="isLogin = !isLogin">
             Registrar
           </div>
-          <div v-else
-               className="mx-auto w-24 p-3
+          <div
+            v-else
+            className="mx-auto w-24 p-3
             rounded-xl text-white
             cursor-pointer bg-yellow-500 hover:bg-yellow-700"
-               @click="isLogin = !isLogin">
+            @click="isLogin = !isLogin">
             Login
           </div>
         </div>
@@ -127,7 +145,13 @@ export default {
         (destiny) => {
           this.goPage(destiny);
         },
-      );
+      ).then(() => {
+        if (store.getRole === 'admin') {
+          this.goPage('admin');
+        } else if (store.getRole === 'user') {
+          this.goPage('perfil');
+        }
+      });
     },
     async signin() {
       const store = useLoginStore();
@@ -141,6 +165,15 @@ export default {
     goPage(route) {
       this.$router.push({ name: route });
     },
+  },
+  async beforeMount() {
+    const loginStore = useLoginStore();
+
+    if (loginStore.getRole === 'admin') {
+      this.goPage('admin');
+    } else if (loginStore.getRole === 'user') {
+      this.goPage('perfil');
+    }
   },
 };
 </script>

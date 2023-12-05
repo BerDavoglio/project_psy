@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 import { defineStore } from 'pinia';
 import axios from 'axios';
@@ -35,17 +36,47 @@ export const useLoginStore = defineStore('loginStore', {
           })
           .then((response) => {
             this.token = response.data.token;
-          }).then(() => {
-            this.requestPerfil();
+          }).then(async () => {
+            await this.requestPerfil();
+          }).then(async () => {
+            await this.requestRole();
           })
           .then(() => {
-            if (this.getPerfil.role === 'admin') {
+            if (this.getRole === 'admin') {
               func('admin');
             }
-            if (this.getPerfil.role === 'user') {
+            if (this.getRole === 'user') {
               func('perfil');
             }
-            this.requestRole();
+          })
+          .catch((err) => {
+            toast.error(err.response.data.errors, {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          });
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
+    async changePoints(obj, points) {
+      try {
+        axios
+          .put(
+            `http://127.0.0.1:3096/users/points/${obj.patient_id}`,
+            {
+              points,
+              calendar_id: obj.id,
+            },
+            { headers: { Authorization: `Bearer ${this.token}` } },
+          )
+          .then(() => {
+            toast.success('Pontos atualizado com sucesso!', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+            window.location.reload();
           })
           .catch((err) => {
             toast.error(err.response.data.errors, {
@@ -160,6 +191,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         this.token = '';
         this.role = '';
+        this.perfil = {};
         func();
         return 0;
       } catch (error) {

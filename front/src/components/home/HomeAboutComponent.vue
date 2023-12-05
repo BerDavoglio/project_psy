@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/max-len -->
 <!-- eslint-disable max-len -->
 <template>
   <div className="home-about-component max-w-[34rem] px-2 m-auto">

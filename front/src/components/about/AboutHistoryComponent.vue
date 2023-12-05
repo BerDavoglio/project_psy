@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/max-len -->
 <!-- eslint-disable max-len -->
 <template>
   <div class="about-history-component">

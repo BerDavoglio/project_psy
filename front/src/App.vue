@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <header-component className="mb-12"></header-component>
+    <header-component className="mb-12" />
     <router-view />
-    <footer-component></footer-component>
+    <footer-component />
   </div>
 </template>
 

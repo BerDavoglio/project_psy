@@ -4,12 +4,14 @@
       Profissionais:
     </div>
     <div v-if="useProfissionalStore().getList.length > 0">
-      <div v-for="(obj, index) in useProfissionalStore().getList"
-           :key="obj"
-           className="font-mono">
-        <profissional-box-component :obj="obj"
-                                    :i="index"
-                                    :isCell="isCell" />
+      <div
+        v-for="(obj, index) in useProfissionalStore().getList"
+        :key="obj"
+        className="font-mono">
+        <profissional-box-component
+          :obj="obj"
+          :i="index"
+          :isCell="isCell" />
       </div>
     </div>
     <div v-else className="py-36 font-bold text-2xl">
@@ -26,7 +28,7 @@ import { useProfissionalStore } from '../store/store';
 import ProfissionalBoxComponent from '../components/profissional/ProfissionalBoxComponent.vue';
 
 export default {
-  nome: 'ProfissionalView',
+  name: 'ProfissionalView',
   components: {
     ProfissionalBoxComponent,
   },

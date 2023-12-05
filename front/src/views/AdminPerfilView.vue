@@ -3,19 +3,22 @@
   <div class="admin-perfil-view">
     <div>
       <calendar-component :isCell="isCell" />
-      <div className="w-48 p-2 bg-green-300 my-10 mx-auto
+      <div
+        className="w-48 p-2 bg-green-300 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="goPage('admin-new-book')">
+        @click="goPage('admin-new-book')">
         Adicionar Consulta
       </div>
-      <div className="w-48 p-2 bg-blue-200 my-10 mx-auto
+      <div
+        className="w-48 p-2 bg-blue-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="goPage('admin-employee')">
+        @click="goPage('admin-employee')">
         Gerenciar Funcionários
       </div>
-      <div className="w-48 p-2 bg-red-200 my-10 mx-auto
+      <div
+        className="w-48 p-2 bg-red-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
+        @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
         Logout
       </div>
     </div>
@@ -58,7 +61,13 @@ export default {
       this.isCell = this.verifyResize(newWidth);
     },
   },
-  beforeMount() {
+  async beforeMount() {
+    const loginStore = useLoginStore();
+
+    if (loginStore.getToken === '') {
+      this.goPage('login');
+    }
+
     this.isCell = this.verifyResize(window.innerWidth);
     if (useLoginStore().getRole !== 'admin') {
       this.$router.push({ name: 'login' });

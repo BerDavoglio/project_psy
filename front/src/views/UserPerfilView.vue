@@ -11,10 +11,13 @@
       </div>
       <div className="max-w-[30rem] m-auto">
         <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-          <div class="bg-blue-200 h-4 rounded-full"
-               :style="['width: '
-                 + (useLoginStore().getPerfil.points / useConquestStore().getList[useConquestStore().getList.length - 1].points) * 100
-                 + '%']">
+          <div
+            class="bg-blue-200 h-4 rounded-full"
+            :style="['width: '
+              + (useLoginStore().getPerfil.points
+                / useConquestStore().getList[useConquestStore().getList.length - 1].points)
+              * 100
+              + '%']">
             <div className="text-[0.7rem]">
               {{ useLoginStore().getPerfil.points }}
             </div>
@@ -22,37 +25,43 @@
         </div>
       </div>
       <div className="my-4">
-        <div className="w-80 py-6 mx-auto
+        <div
+          className="w-80 py-6 mx-auto
           rounded-xl shadow-lg shadow-black/30">
           <div className="font-bold text-xl">
             Lista de Conquistas:
           </div>
-          <div className="my-4"
-               v-for="(obj, index) in useConquestStore().getList"
-               v-bind:key="obj">
+          <div
+            className="my-4"
+            v-for="(obj, index) in useConquestStore().getList"
+            v-bind:key="obj">
             Conquista Nº {{ index + 1 }}:
             <br />
-            <strong :className="(obj.points < useLoginStore().getPerfil.points
-              ? 'line-through'
-              : '')">
+            <strong
+              :className="(obj.points < useLoginStore().getPerfil.points
+                ? 'line-through'
+                : '')">
               {{ obj.description }}
             </strong>
             <br />
-            <strong :className="(obj.points < useLoginStore().getPerfil.points
-              ? 'line-through'
-              : '')">{{ obj.points }}</strong>
+            <strong
+              :className="(obj.points < useLoginStore().getPerfil.points
+                ? 'line-through'
+                : '')">{{ obj.points }}</strong>
           </div>
         </div>
       </div>
       <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
-      <div @click="showTip = !showTip"
-           className="
+      <div
+        @click="showTip = !showTip"
+        className="
         underline cursor-pointer
         text-blue-600 hover:text-blue-800">
         Como conseguir pontos?
       </div>
       <div v-if="showTip">
-        <div className="w-80 bg-blue-200 mx-auto
+        <div
+          className="w-80 bg-blue-200 mx-auto
           rounded-xl shadow-lg shadow-black/30
           p-4">
           <div className="text-lg font-bold">Para conseguir mais pontos, é necessário:</div>
@@ -72,49 +81,60 @@
       <div className="mx-auto my-10">
         <div className="text-bold text-xl">Informações do Usuário:</div>
         <div className="max-w-[32rem] bg-blue-200 m-auto rounded-xl p-4">
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.name"
-                   placeholder="Nome"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.name"
+              placeholder="Nome"
+              className="h-10 w-full px-3">
           </div>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.email"
-                   placeholder="E-mail"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.email"
+              placeholder="E-mail"
+              className="h-10 w-full px-3">
           </div>
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.address"
-                   placeholder="Endereço"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.address"
+              placeholder="Endereço"
+              className="h-10 w-full px-3">
           </div>
           <!-- COLOCAR MASCARA NO CELULAR -->
-          <div className="w-[90%] m-auto mb-2
+          <div
+            className="w-[90%] m-auto mb-2
           border-[0.1rem] border-gray-400 bg-white rounded-[0.3rem]">
-            <input v-model="user.cellphone"
-                   placeholder="Telefone"
-                   className="h-10 w-full px-3">
+            <input
+              v-model="user.cellphone"
+              placeholder="Telefone"
+              className="h-10 w-full px-3">
           </div>
           <div className="w-[90%] m-auto mb-2">
-            <VueDatePicker v-model="user.birth"
-                           format="dd/MM/yyyy"
-                           :enable-time-picker="false"
-                           input-class-name="h-10 rounded-[0.3rem]
+            <VueDatePicker
+              v-model="user.birth"
+              format="dd/MM/yyyy"
+              :enable-time-picker="false"
+              input-class-name="h-10 rounded-[0.3rem]
                            border-[0.1rem] border-gray-400" />
           </div>
-          <div className="mx-auto w-36 p-1
+          <div
+            className="mx-auto w-36 p-1
             rounded-xl text-white
             cursor-pointer bg-green-500 hover:bg-green-700"
-               @click="useLoginStore().updatePerfil(user)">
+            @click="useLoginStore().updatePerfil(user)">
             Salvar
           </div>
         </div>
       </div>
-      <div className="w-48 p-2 bg-red-200 my-10 mx-auto
+      <div
+        className="w-48 p-2 bg-red-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
+        @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
         Logout
       </div>
     </div>
@@ -142,12 +162,24 @@ export default {
       value: 30,
     };
   },
+  methods: {
+    goPage(route) {
+      this.$router.push({ name: route });
+    },
+  },
   async beforeCreate() {
     await useLoginStore().requestPerfil();
     await useConquestStore().requestConquest();
 
     if (useLoginStore().getToken === '') {
       this.$router.push({ name: 'login' });
+    }
+  },
+  async beforeMount() {
+    const loginStore = useLoginStore();
+
+    if (loginStore.getToken === '') {
+      this.goPage('login');
     }
   },
 };

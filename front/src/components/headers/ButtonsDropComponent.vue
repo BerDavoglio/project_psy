@@ -1,55 +1,71 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
-  <div  className="bg-blue-200">
+  <div className="bg-blue-200">
     <div className="mx-10" v-if="!isOpen">
-      <div :className="['mx-auto py-4 grid max-w-[40rem] '
-        + (isCell ? 'grid-cols-1' : 'grid-cols-4')]">
-        <div className="
+      <div
+        :className="['mx-auto py-4 grid max-w-[40rem] '
+          + (isCell ? 'grid-cols-1' : 'grid-cols-4')]">
+        <div
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('home')">
+            w-[8rem]"
+          @click="goPage('home')">
           Home
         </div>
-        <div className="
+        <div
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('about')">
+            w-[8rem]"
+          @click="goPage('about')">
           Sobre
         </div>
-        <div className="
+        <div
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('profissionals')">
+            w-[8rem]"
+          @click="goPage('profissionals')">
           Profissionais
         </div>
-        <div v-if="useLoginStore().getRole === 'user'" className="
+        <div
+          v-if="useLoginStore().getRole === 'user'"
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('perfil')">
+            w-[8rem]"
+          @click="goPage('perfil')">
           Perfil
         </div>
-        <div v-if="useLoginStore().getRole === 'admin'" className="
+        <div
+          v-if="useLoginStore().getRole === 'admin'"
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('admin')">
+            w-[8rem]"
+          @click="goPage('admin')">
           Perfil Administrativo
         </div>
-        <div v-if="useLoginStore().getRole === ''" className="
+        <div
+          v-if="useLoginStore().getRole === ''"
+          className="
             m-auto cursor-pointer
             hover:bg-blue-300
             active:bg-blue-400
             active:text-white
-            w-[8rem]" @click="goPage('login')">
+            w-[8rem]"
+          @click="goPage('login')">
           Login
         </div>
       </div>

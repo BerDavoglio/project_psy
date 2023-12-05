@@ -1,44 +1,57 @@
 <template>
   <div class="home-images-component">
     <div className="max-w-[50rem] m-auto">
-      <Carousel :itemsToShow="(isCell ? 1.15 : 1.95)"
-                :wrapAround="true"
-                :transition="500">
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/1.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+      <Carousel
+        :itemsToShow="(isCell ? 1.15 : 1.95)"
+        :wrapAround="true"
+        :transition="500">
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/1.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/2.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/2.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/6.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/6.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/3.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/3.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/4.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/4.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="../../assets/images/sjp/5.jpeg"
-               alt=''
-               className="w-96 bg-blue-400 object-cover h-[20rem]" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="../../assets/images/sjp/5.jpeg"
+            alt=''
+            className="w-96 bg-blue-400 object-cover h-[20rem]" />
         </Slide>
       </Carousel>
     </div>

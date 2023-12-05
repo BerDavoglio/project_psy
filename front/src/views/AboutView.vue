@@ -1,18 +1,19 @@
 <template>
-  <div class="about"
-       className="font-mono">
-    <about-text-component></about-text-component>
-    <div className="h-10"></div>
-    <about-infra-component></about-infra-component>
-    <div className="h-10"></div>
-    <about-history-component></about-history-component>
-    <div className="h-10"></div>
+  <div
+    class="about"
+    className="font-mono">
+    <about-text-component />
+    <div className="h-10" />
+    <about-infra-component />
+    <div className="h-10" />
+    <about-history-component />
+    <div className="h-10" />
     <about-images-one-component :isCell="isCell" />
     <div>Images da Sede de Curitiba</div>
-    <div className="h-10"></div>
+    <div className="h-10" />
     <about-images-two-component :isCell="isCell" />
     <div>Images da Sede de São José dos Pinhais</div>
-    <div className="h-10"></div>
+    <div className="h-10" />
   </div>
 </template>
 

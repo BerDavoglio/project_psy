@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable camelcase */
 
 import { createApp } from 'vue';
@@ -29,7 +30,6 @@ import router from './router';
 import store from './store/store';
 
 import './assets/tailwind.css';
-// eslint-disable-next-line import/extensions
 import 'vuetify/styles';
 
 import App from './App.vue';

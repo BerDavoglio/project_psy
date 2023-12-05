@@ -1,45 +1,58 @@
 <template>
   <div class="home-images-component">
     <div className="max-w-[35rem] m-auto">
-      <Carousel itemsToShow="1"
-                :wrapAround="true"
-                :transition="1000"
-                :autoplay="3000">
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/2.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+      <Carousel
+        itemsToShow="1"
+        :wrapAround="true"
+        :transition="1000"
+        :autoplay="3000">
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/2.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/3.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/3.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/4.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/4.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/1.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/1.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/5.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/5.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
-        <Slide v-for="image in 1"
-               :key="image">
-          <img src="@/assets/images/cwb/6.jpeg"
-               alt=''
-               className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <Slide
+          v-for="image in 1"
+          :key="image">
+          <img
+            src="@/assets/images/cwb/6.jpeg"
+            alt=''
+            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
         </Slide>
       </Carousel>
     </div>

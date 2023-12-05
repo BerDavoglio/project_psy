@@ -24,6 +24,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      is_finished: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

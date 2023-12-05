@@ -1,13 +1,13 @@
 <template>
   <div className="home font-mono">
-    <home-images-component  :isCell="this.isCell" />
-    <div className="h-10"></div>
-    <home-about-component></home-about-component>
-    <div className="h-10"></div>
+    <home-images-component :isCell="this.isCell" />
+    <div className="h-10" />
+    <home-about-component />
+    <div className="h-10" />
     <home-speciality-component :isCell="this.isCell" />
-    <div className="h-10"></div>
+    <div className="h-10" />
     <home-recomendation-component :isCell="this.isCell" />
-    <div className="h-10"></div>
+    <div className="h-10" />
   </div>
 </template>
 

@@ -7,30 +7,35 @@
         {{ this.$route.params.id ? 'Editar Funcionário' : 'Cadastrar novo Funcionário' }}
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
-        <input v-model="doctor.name"
-               placeholder="Nome"
-               className="h-10 w-full px-3">
+        <input
+          v-model="doctor.name"
+          placeholder="Nome"
+          className="h-10 w-full px-3">
       </div>
       <div className="h-[40px] mb-2">
-        <v-select v-model="doctor.specialization"
-                  density="compact"
-                  :items="['Psiquiatria', 'Psiquiatria Forense']"
-                  variant="outlined" />
+        <v-select
+          v-model="doctor.specialization"
+          density="compact"
+          :items="['Psiquiatria', 'Psiquiatria Forense']"
+          variant="outlined" />
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
-        <input v-model="doctor.description"
-               placeholder="Descrição"
-               className="h-10 w-full px-3">
+        <input
+          v-model="doctor.description"
+          placeholder="Descrição"
+          className="h-10 w-full px-3">
       </div>
       <div>
-        <input placeholder="Imagem (URL)"
-               type="file"
-               @change="onFileSelected"
-               className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2 h-10 px-3">
+        <input
+          placeholder="Imagem (URL)"
+          type="file"
+          @change="onFileSelected"
+          className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2 h-10 px-3">
       </div>
-      <div className="w-48 p-2 bg-green-200 hover:bg-green-400 my-10 mx-auto
+      <div
+        className="w-48 p-2 bg-green-200 hover:bg-green-400 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-           @click="createEditDoc()">
+        @click="createEditDoc()">
         Salvar Funcionário
       </div>
     </div>

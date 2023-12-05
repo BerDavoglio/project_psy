@@ -2,13 +2,17 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div>
-    <div :className="['py-4 bg-blue-200 '
-      + (isCell ? 'grid-cols-1' : 'grid-cols-2 ')
-      + (isOpen ? '' : 'drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]')]">
+    <div
+      :className="['py-4 bg-blue-200 '
+        + (isCell ? 'grid-cols-1' : 'grid-cols-2 ')
+        + (isOpen ? '' : 'drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]')]">
       <div>
         <div :className="['text-2xl grid ' + (isCell ? 'grid-cols-1' : 'grid-cols-3')]">
           <div :className="['my-auto m-auto ' + (isCell ? '' : 'col-start-2')]">
-            <img alt="" className="max-h-[2.5rem] cursor-pointer" src="../../assets/images/logo.png"
+            <img
+              alt=""
+              className="max-h-[2.5rem] cursor-pointer"
+              src="../../assets/images/logo.png"
               @click="this.$router.push({ name: `home` });" />
           </div>
           <div className="cursor-pointer">
@@ -19,11 +23,10 @@
       </div>
     </div>
     <div className="bg-blue-200">
-      <div v-if="isOpen" className="w-[70%] h-[1px] bg-black m-auto"></div>
+      <div v-if="isOpen" className="w-[70%] h-[1px] bg-black m-auto" />
     </div>
-    <buttons-drop-component :isOpen="!isOpen" :isCell="isCell"></buttons-drop-component>
-    <div :className="['w-100 h-[0.1px] bg-black m-auto ']">
-    </div>
+    <buttons-drop-component :isOpen="!isOpen" :isCell="isCell" />
+    <div :className="['w-100 h-[0.1px] bg-black m-auto ']" />
   </div>
 </template>
 

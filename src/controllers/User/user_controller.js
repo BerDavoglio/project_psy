@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import jwt from 'jsonwebtoken';
 import User from '../../models/User/User_models';
+import Calendar from '../../models/Admin/Calendar_models';
 
 class UserController {
   // Creating User:
@@ -172,9 +173,16 @@ class UserController {
       if (!user) {
         return res.status(400).json({ errors: ['User not Found'] });
       }
+      const calendar = await Calendar.findByPk(req.body.calendar_id);
+      if (!calendar) {
+        return res.status(400).json({ errors: ['Calendar not Found'] });
+      }
 
       const newUser = await user.update({
         points: (parseInt(user.points, 10) + parseInt(req.body.points, 10)),
+      });
+      await calendar.update({
+        is_finished: true,
       });
 
       return res.json({ message: `${req.body.points} points was added to ${newUser.name}` });

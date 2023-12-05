@@ -19,6 +19,10 @@ export default class Calendar extends Model {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
+      is_finished: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
     }, {
       sequelize,
     });
