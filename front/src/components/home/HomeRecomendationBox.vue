@@ -4,18 +4,21 @@
   <div>
     <div
       className="p-2 text-lg
-        max-w-96 bg-blue-200 mx-4
+        max-w-96 min-h-[200px] bg-blue-200 mx-4
         rounded-md m-auto
-        hover:scale-[110%] transform transition duration-50 hover:z-10">
-      <div className="text-bold text-left">
-        {{ this.obj.title }}
+        hover:scale-[110%] transform transition duration-50 hover:z-10
+        flex flex-col justify-between">
+      <div>
+        <div className="text-bold text-left">
+          {{ this.obj.name }}
+        </div>
+        <text-clamp
+          :text='this.obj.text'
+          :max-lines='5'
+          className="italic text-justify text-sm my-2" />
       </div>
-      <text-clamp
-        :text='this.obj.text'
-        :max-lines='5'
-        className="italic text-justify text-sm my-2" />
       <div className="text-right">
-        {{ this.obj.name }}{{ this.obj.rate != '' ? (' - ⭐' + this.obj.rate) : '' }}
+        Google Ads{{ this.obj.rate != '' ? (' - ⭐' + this.obj.rate) : '' }}
       </div>
     </div>
   </div>

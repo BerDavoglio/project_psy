@@ -14,5 +14,6 @@ router.get('/role/', loginRequired, userController.showRole); // Get User Itself
 router.put('/', loginRequired, userController.update); // Update a User
 router.delete('/', loginRequired, userController.delete); // Delete a User
 router.put('/points/:id', loginRequired, isAdmin, userController.changePoints); // Update a User
+router.get('/reviews/', userController.requestReviews);
 
 export default router;

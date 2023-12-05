@@ -11,6 +11,7 @@ export const useLoginStore = defineStore('loginStore', {
     role: '',
     perfil: {},
     listPerfilsID: [],
+    reviews: [],
   }),
   getters: {
     getToken() {
@@ -24,6 +25,9 @@ export const useLoginStore = defineStore('loginStore', {
     },
     getListPerfilsID() {
       return this.listPerfilsID;
+    },
+    getReviews() {
+      return this.reviews;
     },
   },
   actions: {
@@ -193,6 +197,20 @@ export const useLoginStore = defineStore('loginStore', {
         this.role = '';
         this.perfil = {};
         func();
+        return 0;
+      } catch (error) {
+        return error;
+      }
+    },
+    async requestViews() {
+      try {
+        axios
+          .get(
+            'http://127.0.0.1:3096/users/reviews/',
+          )
+          .then((response) => {
+            this.reviews = response.data;
+          });
         return 0;
       } catch (error) {
         return error;

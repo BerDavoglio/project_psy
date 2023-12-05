@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import User from '../../models/User/User_models';
 import Calendar from '../../models/Admin/Calendar_models';
@@ -186,6 +187,51 @@ class UserController {
       });
 
       return res.json({ message: `${req.body.points} points was added to ${newUser.name}` });
+    } catch (err) {
+      return res.status(400).json({ errors: err.message });
+    }
+  }
+
+  async requestReviews(req, res) {
+    try {
+      const listResponse = [];
+      const apiKey = 'AIzaSyAUDQjn5OVi7LH_OnGHLYasVX5WbSA6C4c';
+      const placeId = 'ChIJ_U31Zgz63JQR1s87zNMqqfY';
+      const language = 'pt';
+
+      const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&language=${language}&key=${apiKey}`;
+
+      const response = await axios.get(url);
+      const { data } = response;
+
+      if ('reviews' in data.result) {
+        const { reviews } = data.result;
+
+        const sortedReviews = reviews.sort((a, b) => b.rating - a.rating);
+        const bestReviews = sortedReviews.slice(0, 2);
+
+        if (bestReviews.length > 0) {
+          bestReviews.forEach((review) => {
+            const reviewerName = review.author_name;
+            const comment = (review.text === ''
+              ? 'O usuário não adicionou uma descrição sobre o review.'
+              : review.text);
+            const { rating } = review;
+
+            listResponse.push({
+              name: reviewerName,
+              text: comment,
+              rate: rating,
+            });
+          });
+        } else {
+          return res.status(400).json({ errors: 'No reviews found.' });
+        }
+      } else {
+        return res.status(400).json({ errors: 'No reviews found.' });
+      }
+
+      return res.json(listResponse);
     } catch (err) {
       return res.status(400).json({ errors: err.message });
     }
