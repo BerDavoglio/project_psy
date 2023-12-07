@@ -50,8 +50,7 @@ import { useProfissionalStore } from '../store/store';
 export default {
   name: 'AdminNewEmployeeView',
   params: ['id'],
-  components: {
-  },
+  components: {},
   data() {
     return {
       selectedFile: null,
