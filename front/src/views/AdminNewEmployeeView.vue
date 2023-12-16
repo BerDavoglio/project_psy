@@ -97,7 +97,8 @@ export default {
   beforeMount() {
     if (this.$route.params.id) {
       const list = useProfissionalStore().getList;
-      const docIndex = list.findIndex((obj) => obj.id === this.$route.params.id);
+      // eslint-disable-next-line eqeqeq
+      const docIndex = list.findIndex((obj) => obj.id == this.$route.params.id);
 
       console.log(list);
       console.log(this.$route.params.id);
