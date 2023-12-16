@@ -99,7 +99,7 @@ export default {
       const list = useProfissionalStore().getList;
       let doct;
       list.forEach((obj) => {
-        if (obj.id === this.$route.params.id) {
+        if (obj.id === this.id) {
           doct = obj;
         }
       });
