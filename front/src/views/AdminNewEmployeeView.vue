@@ -8,20 +8,20 @@
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
-          v-model="doctor.name"
+          v-model="name"
           placeholder="Nome"
           className="h-10 w-full px-3">
       </div>
       <div className="h-[40px] mb-2">
         <v-select
-          v-model="doctor.specialization"
+          v-model="specialization"
           density="compact"
           :items="['Psiquiatria', 'Psiquiatria Forense']"
           variant="outlined" />
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
-          v-model="doctor.description"
+          v-model="description"
           placeholder="Descrição"
           className="h-10 w-full px-3">
       </div>
@@ -98,21 +98,15 @@ export default {
     if (this.$route.params.id) {
       const list = useProfissionalStore().getList;
       // eslint-disable-next-line eqeqeq
-      const docIndex = list.findIndex((obj) => obj.id == this.$route.params.id);
+      const doct = list.find((obj) => obj.id == this.$route.params.id);
 
       console.log(list);
       console.log(this.$route.params.id);
-      console.log(list[docIndex]);
+      console.log(doct);
 
-      this.name = (this.$route.params.id
-        ? list[docIndex].name
-        : '');
-      this.specialization = (this.$route.params.id
-        ? list[docIndex].specialization
-        : 'Especialidade');
-      this.description = (this.$route.params.id
-        ? list[docIndex].description
-        : '');
+      this.name = doct.name;
+      this.specialization = doct.specialization;
+      this.description = doct.description;
     }
   },
 };
