@@ -8,20 +8,20 @@
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
-          v-model="doctor.name"
+          v-model="name"
           placeholder="Nome"
           className="h-10 w-full px-3">
       </div>
       <div className="h-[40px] mb-2">
         <v-select
-          v-model="doctor.specialization"
+          v-model="specialization"
           density="compact"
           :items="['Psiquiatria', 'Psiquiatria Forense']"
           variant="outlined" />
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
-          v-model="doctor.description"
+          v-model="description"
           placeholder="Descrição"
           className="h-10 w-full px-3">
       </div>
@@ -54,11 +54,9 @@ export default {
   data() {
     return {
       selectedFile: null,
-      doctor: {
-        name: '',
-        specialization: 'Especialidade',
-        description: '',
-      },
+      name: '',
+      specialization: 'Especialidade',
+      description: '',
     };
   },
   methods: {
@@ -67,9 +65,9 @@ export default {
 
       const formData = new FormData();
       formData.append('image', this.selectedFile);
-      formData.append('name', this.doctor.name);
-      formData.append('specialization', this.doctor.specialization);
-      formData.append('description', this.doctor.description);
+      formData.append('name', this.name);
+      formData.append('specialization', this.specialization);
+      formData.append('description', this.description);
 
       if (this.$route.params.id) {
         await store.updateProfissional(
@@ -100,13 +98,13 @@ export default {
     if (this.$route.params.id) {
       const doct = useProfissionalStore().getList.find((obj) => obj.id === this.$route.params.id);
 
-      this.doctor.name = (this.$route.params.id
+      this.name = (this.$route.params.id
         ? doct.name
         : '');
-      this.doctor.specialization = (this.$route.params.id
+      this.specialization = (this.$route.params.id
         ? doct.specialization
         : 'Especialidade');
-      this.doctor.description = (this.$route.params.id
+      this.description = (this.$route.params.id
         ? doct.description
         : '');
     }
