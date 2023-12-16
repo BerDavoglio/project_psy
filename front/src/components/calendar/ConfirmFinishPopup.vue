@@ -68,8 +68,6 @@ export default {
       this.$emit('confirmFinish', [false, null]);
     },
   },
-  beforeMount() {
-    console.log(this.pre_data);
-  },
+  beforeMount() {},
 };
 </script>
