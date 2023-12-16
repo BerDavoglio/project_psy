@@ -56,7 +56,7 @@ export default {
       selectedFile: null,
       doctor: {
         name: '',
-        specialization: '',
+        specialization: 'Especialidade',
         description: '',
       },
     };
@@ -100,13 +100,13 @@ export default {
     if (this.$route.params.id) {
       const doct = useProfissionalStore().getList.find((obj) => obj.id === this.$route.params.id);
 
-      this.name = (this.$route.params.id
+      this.doctor.name = (this.$route.params.id
         ? doct.name
         : '');
-      this.specialization = (this.$route.params.id
+      this.doctor.specialization = (this.$route.params.id
         ? doct.specialization
         : 'Especialidade');
-      this.description = (this.$route.params.id
+      this.doctor.description = (this.$route.params.id
         ? doct.description
         : '');
     }
