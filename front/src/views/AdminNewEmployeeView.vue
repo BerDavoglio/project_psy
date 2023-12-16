@@ -97,28 +97,21 @@ export default {
   beforeMount() {
     if (this.$route.params.id) {
       const list = useProfissionalStore().getList;
-      let doct;
-      list.forEach((obj) => {
-        if (obj.id === this.id) {
-          doct = obj;
-        }
-      });
+      const docIndex = list.findIndex((obj) => obj.id === this.$route.params.id);
 
       console.log(list);
       console.log(this.$route.params.id);
-      console.log(doct);
+      console.log(list[docIndex]);
 
-      if (doct) {
-        this.name = (this.$route.params.id
-          ? doct.name
-          : '');
-        this.specialization = (this.$route.params.id
-          ? doct.specialization
-          : 'Especialidade');
-        this.description = (this.$route.params.id
-          ? doct.description
-          : '');
-      }
+      this.name = (this.$route.params.id
+        ? list[docIndex].name
+        : '');
+      this.specialization = (this.$route.params.id
+        ? list[docIndex].specialization
+        : 'Especialidade');
+      this.description = (this.$route.params.id
+        ? list[docIndex].description
+        : '');
     }
   },
 };
