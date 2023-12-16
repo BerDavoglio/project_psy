@@ -19,9 +19,9 @@
         <div className="italic uppercase">
           {{ this.obj.specialization }}
         </div>
-        <text-clamp
-          :text='this.obj.description'
-          :max-lines='6' />
+        <div className="">
+          {{ this.obj.description }}
+        </div>
       </div>
     </div>
     <div

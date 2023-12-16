@@ -18,9 +18,9 @@
             {{ this.obj.specialization }}
           </div>
         </div>
-        <text-clamp
-          :text='this.obj.description'
-          :max-lines='5' />
+        <div className="">
+          {{ this.obj.description }}
+        </div>
       </div>
       <div className="flex flex-col place-content-center">
         <div

@@ -97,18 +97,19 @@ export default {
     },
   },
   beforeMount() {
-    this.name = (this.$route.params.id
-      ? useProfissionalStore().getList
-        .find((obj) => obj.id === this.$route.params.id).name
-      : '');
-    this.specialization = (this.$route.params.id
-      ? useProfissionalStore().getList
-        .find((obj) => obj.id === this.$route.params.id).specialization
-      : 'Especialidade');
-    this.description = (this.$route.params.id
-      ? useProfissionalStore().getList
-        .find((obj) => obj.id === this.$route.params.id).description
-      : '');
+    if (this.$route.params.id) {
+      const doct = useProfissionalStore().getList.find((obj) => obj.id === this.$route.params.id);
+
+      this.name = (this.$route.params.id
+        ? doct.name
+        : '');
+      this.specialization = (this.$route.params.id
+        ? doct.specialization
+        : 'Especialidade');
+      this.description = (this.$route.params.id
+        ? doct.description
+        : '');
+    }
   },
 };
 </script>
