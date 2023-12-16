@@ -39,7 +39,9 @@ export default {
     await store.requestViews();
 
     console.log(store.getReviews);
-    this.obj = store.getReviews;
+    if (store.getReviews.length !== 0) {
+      this.obj = store.getReviews;
+    }
   },
 };
 </script>

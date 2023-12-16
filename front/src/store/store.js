@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import { toast } from 'vue3-toastify';
 
+const urlBase = 'http://195.35.40.70:3096';
+
 export const useLoginStore = defineStore('loginStore', {
   state: () => ({
     token: '',
@@ -34,7 +36,7 @@ export const useLoginStore = defineStore('loginStore', {
     async requestLogin(email, password, func) {
       try {
         axios
-          .post('http://127.0.0.1:3096/jwt/', {
+          .post(`${urlBase}/jwt/`, {
             email,
             password,
           })
@@ -68,7 +70,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .put(
-            `http://127.0.0.1:3096/users/points/${obj.patient_id}`,
+            `${urlBase}/users/points/${obj.patient_id}`,
             {
               points,
               calendar_id: obj.id,
@@ -97,7 +99,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .post(
-            'http://127.0.0.1:3096/users/',
+            `${urlBase}/users/`,
             obj,
           ).then(async (response) => {
             this.requestLogin(response.data.email, obj.password, func);
@@ -121,7 +123,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .put(
-            'http://127.0.0.1:3096/users/',
+            `${urlBase}/users/`,
             obj,
             { headers: { Authorization: `Bearer ${this.token}` } },
           )
@@ -150,7 +152,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/users/role',
+            `${urlBase}/users/role`,
             { headers: { Authorization: `Bearer ${this.token}` } },
           )
           .then((response) => {
@@ -165,7 +167,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/users',
+            `${urlBase}/users`,
             { headers: { Authorization: `Bearer ${this.token}` } },
           )
           .then((response) => {
@@ -180,7 +182,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/users/idname/',
+            `${urlBase}/users/idname/`,
             { headers: { Authorization: `Bearer ${this.token}` } },
           )
           .then((response) => {
@@ -206,7 +208,7 @@ export const useLoginStore = defineStore('loginStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/users/reviews/',
+            `${urlBase}/users/reviews/`,
           )
           .then((response) => {
             this.reviews = response.data;
@@ -237,7 +239,7 @@ export const useProfissionalStore = defineStore('profissionalStore', {
     async requestProfissional() {
       try {
         axios
-          .get('http://127.0.0.1:3096/admin/doctors/')
+          .get(`${urlBase}/admin/doctors/`)
           .then((response) => {
             this.list = response.data;
           });
@@ -249,7 +251,7 @@ export const useProfissionalStore = defineStore('profissionalStore', {
     async requestProfissionalsIDNAME() {
       try {
         axios
-          .get('http://127.0.0.1:3096/admin/doctors/docidname')
+          .get(`${urlBase}/admin/doctors/docidname`)
           .then((response) => {
             this.listProfissionalsIDNAME = response.data;
           });
@@ -262,7 +264,7 @@ export const useProfissionalStore = defineStore('profissionalStore', {
       try {
         axios
           .post(
-            'http://127.0.0.1:3096/admin/doctors/',
+            `${urlBase}/admin/doctors/`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -291,7 +293,7 @@ export const useProfissionalStore = defineStore('profissionalStore', {
       try {
         axios
           .put(
-            `http://127.0.0.1:3096/admin/doctors/${id}`,
+            `${urlBase}/admin/doctors/${id}`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -320,7 +322,7 @@ export const useProfissionalStore = defineStore('profissionalStore', {
       try {
         axios
           .delete(
-            `http://127.0.0.1:3096/admin/doctors/${obj.id}`,
+            `${urlBase}/admin/doctors/${obj.id}`,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
@@ -361,7 +363,7 @@ export const useCalendarStore = defineStore('calendarStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/admin/calendars/',
+            `${urlBase}/admin/calendars/`,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then((response) => {
@@ -376,7 +378,7 @@ export const useCalendarStore = defineStore('calendarStore', {
       try {
         axios
           .post(
-            'http://127.0.0.1:3096/admin/calendars/',
+            `${urlBase}/admin/calendars/`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -405,7 +407,7 @@ export const useCalendarStore = defineStore('calendarStore', {
       try {
         axios
           .put(
-            `http://127.0.0.1:3096/admin/calendars/${id}`,
+            `${urlBase}/admin/calendars/${id}`,
             obj,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
@@ -434,7 +436,7 @@ export const useCalendarStore = defineStore('calendarStore', {
       try {
         axios
           .delete(
-            `http://127.0.0.1:3096/admin/calendars/${obj.id}`,
+            `${urlBase}/admin/calendars/${obj.id}`,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then(() => {
@@ -473,7 +475,7 @@ export const useConquestStore = defineStore('conquestStore', {
       try {
         axios
           .get(
-            'http://127.0.0.1:3096/conquests/',
+            `${urlBase}/conquests/`,
             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
           )
           .then((response) => {

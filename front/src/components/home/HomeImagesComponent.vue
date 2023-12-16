@@ -2,7 +2,7 @@
   <div class="home-images-component">
     <div className="max-w-[35rem] m-auto">
       <Carousel
-        itemsToShow="1"
+        :itemsToShow="1"
         :wrapAround="true"
         :transition="1000"
         :autoplay="3000">

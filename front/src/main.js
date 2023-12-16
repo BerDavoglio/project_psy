@@ -21,8 +21,6 @@ import {
   BiInstagram,
 } from 'oh-vue-icons/icons';
 
-import TextClamp from 'vue3-text-clamp';
-
 import Vue3Toasity from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 
@@ -52,7 +50,6 @@ addIcons(
 createApp(App).component('v-icon', OhVueIcon)
   .use(pinia)
   .use(store)
-  .use(TextClamp)
   .use(
     Vue3Toasity,
     {
