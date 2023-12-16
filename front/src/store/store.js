@@ -33,7 +33,7 @@ export const useLoginStore = defineStore('loginStore', {
     },
   },
   actions: {
-    async requestLogin(email, password, func) {
+    async requestLogin(email, password) {
       try {
         axios
           .post(`${urlBase}/jwt/`, {
@@ -49,10 +49,10 @@ export const useLoginStore = defineStore('loginStore', {
           })
           .then(() => {
             if (this.getRole === 'admin') {
-              func('admin');
+              this.$router.push({ name: 'admin' });
             }
             if (this.getRole === 'user') {
-              func('perfil');
+              this.$router.push({ name: 'perfil' });
             }
           })
           .catch((err) => {
@@ -95,14 +95,14 @@ export const useLoginStore = defineStore('loginStore', {
         return error;
       }
     },
-    async createPerfil(obj, func) {
+    async createPerfil(obj) {
       try {
         axios
           .post(
             `${urlBase}/users/`,
             obj,
           ).then(async (response) => {
-            this.requestLogin(response.data.email, obj.password, func);
+            this.requestLogin(response.data.email, obj.password);
           }).then(() => {
             toast.success('Perfil criado com sucesso!', {
               autoClose: 5000,
@@ -193,12 +193,12 @@ export const useLoginStore = defineStore('loginStore', {
         return error;
       }
     },
-    async logout(func) {
+    async logout() {
       try {
         this.token = '';
         this.role = '';
         this.perfil = {};
-        func();
+        this.$router.push({ name: 'login' });
         return 0;
       } catch (error) {
         return error;

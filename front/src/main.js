@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable camelcase */
 
-import { createApp } from 'vue';
+import { createApp, markRaw } from 'vue';
 
 import { createPinia } from 'pinia';
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
@@ -25,7 +26,7 @@ import Vue3Toasity from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 
 import router from './router';
-import store from './store/store';
+import stores from './store/store';
 
 import './assets/tailwind.css';
 import 'vuetify/styles';
@@ -33,6 +34,9 @@ import 'vuetify/styles';
 import App from './App.vue';
 
 const pinia = createPinia();
+pinia.use(({ store }) => {
+  store.$router = markRaw(router);
+});
 pinia.use(piniaPluginPersistedState);
 
 const vuetify = createVuetify({
@@ -49,7 +53,7 @@ addIcons(
 
 createApp(App).component('v-icon', OhVueIcon)
   .use(pinia)
-  .use(store)
+  .use(stores)
   .use(
     Vue3Toasity,
     {

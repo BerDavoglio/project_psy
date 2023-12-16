@@ -142,9 +142,6 @@ export default {
       await store.requestLogin(
         this.email,
         this.password,
-        (destiny) => {
-          this.goPage(destiny);
-        },
       ).then(() => {
         if (store.getRole === 'admin') {
           this.goPage('admin');
@@ -157,9 +154,6 @@ export default {
       const store = useLoginStore();
       await store.createPerfil(
         this.user,
-        (destiny) => {
-          this.goPage(destiny);
-        },
       );
     },
     goPage(route) {

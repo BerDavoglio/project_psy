@@ -18,7 +18,7 @@
       <div
         className="w-48 p-2 bg-red-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
-        @click="useLoginStore().logout(this.$router.push({ name: 'login' }))">
+        @click="useLoginStore().logout()">
         Logout
       </div>
     </div>
