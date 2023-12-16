@@ -12,10 +12,9 @@
         <div className="text-bold text-left">
           {{ this.obj.name }}
         </div>
-        <text-clamp
-          :text='this.obj.text'
-          :max-lines='5'
-          className="italic text-justify text-sm my-2" />
+        <div className="italic text-justify text-sm my-2">
+          {{ this.obj.text }}
+        </div>
       </div>
       <div className="text-right">
         Google Ads{{ this.obj.rate != '' ? (' - ⭐' + this.obj.rate) : '' }}
