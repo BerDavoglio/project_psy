@@ -55,18 +55,9 @@ export default {
     return {
       selectedFile: null,
       doctor: {
-        name: (this.$route.params.id
-          ? useProfissionalStore().getList
-            .find((obj) => obj.id === this.$route.params.id).name
-          : ''),
-        specialization: (this.$route.params.id
-          ? useProfissionalStore().getList
-            .find((obj) => obj.id === this.$route.params.id).specialization
-          : 'Especialidade'),
-        description: (this.$route.params.id
-          ? useProfissionalStore().getList
-            .find((obj) => obj.id === this.$route.params.id).description
-          : ''),
+        name: '',
+        specialization: '',
+        description: '',
       },
     };
   },
@@ -104,6 +95,20 @@ export default {
       // eslint-disable-next-line prefer-destructuring
       this.selectedFile = event.target.files[0];
     },
+  },
+  beforeMount() {
+    this.name = (this.$route.params.id
+      ? useProfissionalStore().getList
+        .find((obj) => obj.id === this.$route.params.id).name
+      : '');
+    this.specialization = (this.$route.params.id
+      ? useProfissionalStore().getList
+        .find((obj) => obj.id === this.$route.params.id).specialization
+      : 'Especialidade');
+    this.description = (this.$route.params.id
+      ? useProfissionalStore().getList
+        .find((obj) => obj.id === this.$route.params.id).description
+      : '');
   },
 };
 </script>
