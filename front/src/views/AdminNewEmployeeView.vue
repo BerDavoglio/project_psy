@@ -100,10 +100,6 @@ export default {
       // eslint-disable-next-line eqeqeq
       const doct = list.find((obj) => obj.id == this.$route.params.id);
 
-      console.log(list);
-      console.log(this.$route.params.id);
-      console.log(doct);
-
       this.name = doct.name;
       this.specialization = doct.specialization;
       this.description = doct.description;
