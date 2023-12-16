@@ -65,9 +65,9 @@ export default {
 
       const formData = new FormData();
       formData.append('image', this.selectedFile);
-      formData.append('name', this.doctor.name);
-      formData.append('specialization', this.doctor.specialization);
-      formData.append('description', this.doctor.description);
+      formData.append('name', this.name);
+      formData.append('specialization', this.specialization);
+      formData.append('description', this.description);
 
       if (this.$route.params.id) {
         await store.updateProfissional(
@@ -99,13 +99,13 @@ export default {
       const doct = useProfissionalStore().getList.find((obj) => obj.id === this.$route.params.id);
 
       console.log(doct);
-      this.doctor.name = (this.$route.params.id
+      this.name = (this.$route.params.id
         ? doct.name
         : '');
-      this.doctor.specialization = (this.$route.params.id
+      this.specialization = (this.$route.params.id
         ? doct.specialization
         : 'Especialidade');
-      this.doctor.description = (this.$route.params.id
+      this.description = (this.$route.params.id
         ? doct.description
         : '');
     }
