@@ -13,7 +13,9 @@
           Criar Novo
         </div>
       </div>
-      <div v-if="useProfissionalStore().getList.length > 0">
+      <div
+        className="min-h-[16rem]"
+        v-if="useProfissionalStore().getList.length > 0">
         <div
           v-for="obj in useProfissionalStore().getList"
           v-bind:key="obj">
