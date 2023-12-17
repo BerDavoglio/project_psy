@@ -36,7 +36,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.3.11",
+    "@vue/compiler-sfc": "npm:@vue/compiler-sfc@^3",
     "@vue/eslint-config-airbnb": "^7.0.1",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
