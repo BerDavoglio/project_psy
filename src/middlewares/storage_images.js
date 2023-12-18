@@ -4,7 +4,7 @@ import path from 'path';
 
 const storage = multer.diskStorage({
   destination: (_req, file, cb) => {
-    cb(null, path.join(__dirname, '../images'));
+    cb(null, path.join(__dirname, './images'));
   },
   filename: (_req, file, cb) => {
     const date = Date.now();
@@ -28,7 +28,7 @@ export default (req, res, next) => {
       }
 
       // If upload is successful, set the imagePath in the request object
-      req.imagePath = path.join('/images', req.file.filename);
+      req.imagePath = path.join('/middlewares/images', req.file.filename);
 
       next();
     });
