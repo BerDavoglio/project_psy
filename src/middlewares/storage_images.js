@@ -28,7 +28,7 @@ export default (req, res, next) => {
       }
 
       // If upload is successful, set the imagePath in the request object
-      req.imagePath = path.join('/middlewares/images', req.file.filename);
+      req.imagePath = req.file.filename;
 
       next();
     });
