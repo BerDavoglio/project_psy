@@ -19,7 +19,7 @@ export default (req, res, next) => {
   try {
     upload(req, res, (err) => {
       if (err) {
-        return res.status(400).json({ errors: [`[STORAGEIMAGES]${err.message}`] });
+        return res.status(400).json({ errors: [`[STORAGEIMAGES] ${err.message}`] });
       }
 
       // Check if req.file is defined
@@ -33,6 +33,6 @@ export default (req, res, next) => {
       next();
     });
   } catch (e) {
-    return res.status(500).json({ errors: [`[STORAGEIMAGES]${e.message}`] });
+    return res.status(500).json({ errors: [`[STORAGEIMAGES] ${e.message}`] });
   }
 };

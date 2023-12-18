@@ -24,7 +24,7 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(cors());
-    this.app.use('/images', express.static(path.join(__dirname, './middlewares/images')));
+    this.app.use('/images', express.static(path.join(__dirname, './dist/middlewares/images')));
   }
 
   routes() {
