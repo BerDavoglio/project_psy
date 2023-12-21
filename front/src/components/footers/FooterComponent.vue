@@ -5,7 +5,7 @@
     <div
       :className="[
         'bg-blue-200 w-full pt-10 grid pb-12 '
-          + (this.windowWidth > 768 ? 'grid-cols-3' : 'grid-cols-1')]">
+          + (windowWidth > 768 ? 'grid-cols-3' : 'grid-cols-1')]">
       <part-one />
       <part-three />
       <part-four />

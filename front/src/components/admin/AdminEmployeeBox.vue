@@ -7,30 +7,30 @@
         + (isCell ? 'grid-cols-1' : 'grid-cols-6')]">
       <img
         className="m-auto rounded-full h-28 w-28 my-4 object-cover"
-        :src="['http://195.35.40.70:3096' + this.obj.image]"
+        :src="['http://195.35.40.70:3096' + obj.image]"
         alt="" />
       <div :className="['m-2 ' + (isCell ? '' : 'col-span-4')]">
         <div>
           <div className="font-bold text-xl">
-            {{ this.obj.name }}
+            {{ obj.name }}
           </div>
           <div className="font-bold">
-            {{ this.obj.specialization }}
+            {{ obj.specialization }}
           </div>
         </div>
         <div className="">
-          {{ this.obj.description }}
+          {{ obj.description }}
         </div>
       </div>
       <div className="flex flex-col place-content-center">
         <div
           className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-yellow-400"
-          @click="this.$router.push({ name: 'admin-new-employee', params: { id: this.obj.id } });">
+          @click="this.$router.push({ name: 'admin-new-employee', params: { id: obj.id } });">
           Editar
         </div>
         <div
           className="py-1 px-8 m-2 rounded-lg cursor-pointer bg-red-400"
-          @click="useProfissionalStore().deleteProfissional(this.obj)">
+          @click="useProfissionalStore().deleteProfissional(obj)">
           Apagar
         </div>
       </div>

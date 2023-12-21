@@ -10,19 +10,19 @@
             text-white mt-2">
       <div
         v-if="hover == false"
-        :style="{ backgroundImage: `url(${this.obj.img})` }"
+        :style="{ backgroundImage: `url(${obj.img})` }"
         className="
           rounded-md w-full h-full text-2xl
           flex place-items-center justify-center font-bold uppercase
           bg-cover bg-no-repeat bg-center">
-        {{ this.obj.title }}
+        {{ obj.title }}
       </div>
       <div v-if="hover == true" className="bg-white text-black p-3 w-full h-full rounded-md">
         <div className="text-2xl font-bold">
-          {{ this.obj.title }}
+          {{ obj.title }}
         </div>
         <div class="text-center text-sm mt-3">
-          {{ this.obj.text }}
+          {{ obj.text }}
         </div>
       </div>
     </div>

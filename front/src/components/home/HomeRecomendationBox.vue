@@ -10,14 +10,14 @@
         flex flex-col justify-between">
       <div>
         <div className="text-bold text-left">
-          {{ this.obj.name }}
+          {{ obj.name }}
         </div>
         <div className="italic text-justify text-sm my-2">
-          {{ this.obj.text }}
+          {{ obj.text }}
         </div>
       </div>
       <div className="text-right">
-        Google Ads{{ this.obj.rate != '' ? (' - ⭐' + this.obj.rate) : '' }}
+        Google Ads{{ obj.rate != '' ? (' - ⭐' + obj.rate) : '' }}
       </div>
     </div>
   </div>

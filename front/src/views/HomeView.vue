@@ -1,12 +1,12 @@
 <template>
   <div className="home font-mono">
-    <home-images-component :isCell="this.isCell" />
+    <home-images-component :isCell="isCell" />
     <div className="h-10" />
     <home-about-component />
     <div className="h-10" />
-    <home-speciality-component :isCell="this.isCell" />
+    <home-speciality-component :isCell="isCell" />
     <div className="h-10" />
-    <home-recomendation-component :isCell="this.isCell" />
+    <home-recomendation-component :isCell="isCell" />
     <div className="h-10" />
   </div>
 </template>

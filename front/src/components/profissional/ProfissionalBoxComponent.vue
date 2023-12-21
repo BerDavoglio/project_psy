@@ -10,17 +10,17 @@
       <img
         :className="['m-auto rounded-full h-40 w-40 my-4 object-cover  '
           + (i % 2 == 0 ? '' : 'order-last')]"
-        :src="['http://195.35.40.70:3096' + this.obj.image]"
+        :src="['http://195.35.40.70:3096' + obj.image]"
         alt="" />
       <div className="col-span-4 m-2">
         <div className="font-bold text-xl">
-          {{ this.obj.name }}
+          {{ obj.name }}
         </div>
         <div className="italic uppercase">
-          {{ this.obj.specialization }}
+          {{ obj.specialization }}
         </div>
         <div className="">
-          {{ this.obj.description }}
+          {{ obj.description }}
         </div>
       </div>
     </div>
@@ -31,13 +31,13 @@
     grid grid-cols-1">
       <img
         className="m-auto rounded-full h-40 w-40"
-        :src="this.obj.img"
+        :src="obj.img"
         alt="" />
       <div className="col-span-4 m-2">
         <div className="font-bold text-xl">
-          {{ this.obj.name }}
+          {{ obj.name }}
         </div>
-        <div>{{ this.obj.text }}</div>
+        <div>{{ obj.text }}</div>
       </div>
     </div>
   </div>

@@ -4,9 +4,9 @@
 <template>
   <div class="calendar-component">
     <div className="max-w-[42rem] m-auto">
-      <div :className="['grid mb-2 '] + (this.isCell ? 'grid-cols-3' : 'grid-cols-7')">
+      <div :className="['grid mb-2 '] + (isCell ? 'grid-cols-3' : 'grid-cols-7')">
         <div
-          :className="['cursor-pointer text-xl ' + (this.isCell ? '' : 'col-start-3')]"
+          :className="['cursor-pointer text-xl ' + (isCell ? '' : 'col-start-3')]"
           @click="changeMonth(selectedMonth - 1)">&lt;</div>
         <div className="text-xl">{{ getMonthName() }}</div>
         <div
@@ -25,12 +25,12 @@
       <div className="grid grid-cols-7">
         <div
           className="max-w-[6rem] h-[6rem] border-[0.5px] border-red-500 hover:bg-red-600"
-          v-for="marker in (new Date(this.date.getFullYear(), selectedMonth, 1).getDay())"
+          v-for="marker in (new Date(date.getFullYear(), selectedMonth, 1).getDay())"
           v-bind:key="marker" />
         <div
           :className="['max-w-[6rem] h-[6rem] border-[0.5px] hover:bg-blue-300 cursor-pointer '
             + (day === selectedDay ? 'bg-blue-200' : '')]"
-          v-for="day in (new Date(this.date.getFullYear(), selectedMonth + 1, 0).getDate())"
+          v-for="day in (new Date(date.getFullYear(), selectedMonth + 1, 0).getDate())"
           v-bind:key="day"
           @click="changeDay(day)">
           {{ day }}
@@ -69,7 +69,7 @@
             v-bind:key="obj">
             <div
               :className="['grid text-justify bg-blue-200 rounded-md m-2 '
-                + (this.isCell ? 'grid-cols-1' : 'grid-cols-4')]">
+                + (isCell ? 'grid-cols-1' : 'grid-cols-4')]">
               <div className="m-2">
                 <strong>Paciente: </strong>
                 {{ useLoginStore().getListPerfilsID.find(pat => pat.id === obj.patient_id).name }}
