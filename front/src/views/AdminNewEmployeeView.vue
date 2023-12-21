@@ -4,7 +4,7 @@
   <div class="admin-new-employee-view">
     <div className="w-[100%] max-w-[28rem] mx-auto mb-20 rounded-xl shadow-2xl p-4">
       <div className="m-10 text-2xl font-bold">
-        {{ this.$route.params.id ? 'Editar Funcionário' : 'Cadastrar novo Funcionário' }}
+        {{ $route.params.id ? 'Editar Funcionário' : 'Cadastrar novo Funcionário' }}
       </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
