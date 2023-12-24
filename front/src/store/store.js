@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 import { defineStore } from 'pinia';
@@ -5,7 +6,7 @@ import axios from 'axios';
 
 import { toast } from 'vue3-toastify';
 
-const urlBase = 'http://195.35.40.70:3096';
+const urlBase = 'https://195.35.40.70:3096';
 
 export const useLoginStore = defineStore('loginStore', {
   state: () => ({
