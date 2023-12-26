@@ -10,7 +10,10 @@
     </div>
     <div class="bg-white h-[1px] w-[80%] mx-auto my-3 rounded-md" />
     <div class="text-sm">
-      <strong>Telefone (WhatsApp): </strong> +55 41 99500-8877
+      <strong>Telefone (WhatsApp/Curitiba): </strong> +55 41 99500-8877
+    </div>
+    <div class="text-sm">
+      <strong>Telefone (WhatsApp/São José dos Pinhais): </strong> +55 41 99222-1174
     </div>
   </div>
 </template>

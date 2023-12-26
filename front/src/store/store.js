@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { toast } from 'vue3-toastify';
 
-const urlBase = 'https://195.35.40.70:3096';
+const urlBase = 'http://195.35.40.70:3096';
 
 export const useLoginStore = defineStore('loginStore', {
   state: () => ({

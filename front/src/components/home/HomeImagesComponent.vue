@@ -18,14 +18,6 @@
           v-for="image in 1"
           :key="image">
           <img
-            src="@/assets/images/cwb/3.jpeg"
-            alt=''
-            className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-        </Slide>
-        <Slide
-          v-for="image in 1"
-          :key="image">
-          <img
             src="@/assets/images/cwb/4.jpeg"
             alt=''
             className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />

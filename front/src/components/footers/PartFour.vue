@@ -12,6 +12,9 @@
       <div className="cursor-pointer mt-2" @click="goToFacebook">
         <v-icon name="bi-facebook" /> Facebook
       </div>
+      <div className="cursor-pointer mt-2" @click="goToLinkedin">
+        <v-icon name="bi-linkedin " /> LinkedIn
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +28,9 @@ export default {
     },
     goToFacebook() {
       window.open('https://www.facebook.com/AngimediClinicaMedica', '_blank');
+    },
+    goToLinkedin() {
+      window.open('https://www.linkedin.com/company/angimediclinica/', '_blank');
     },
   },
 };

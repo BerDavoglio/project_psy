@@ -20,6 +20,7 @@ import {
   IoCloseSharp,
   BiFacebook,
   BiInstagram,
+  BiLinkedin,
 } from 'oh-vue-icons/icons';
 
 import Vue3Toasity from 'vue3-toastify';
@@ -49,6 +50,7 @@ addIcons(
   IoCloseSharp,
   BiFacebook,
   BiInstagram,
+  BiLinkedin,
 );
 
 createApp(App).component('v-icon', OhVueIcon)
