@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import fs from 'fs';
+import https from 'https';
 import app from './app';
 import User from './models/User/User_models';
 
@@ -29,4 +31,11 @@ app.listen(process.env.APP_PORT, async () => {
   }
 
   console.log('Started!');
+});
+
+https.createServer({
+  cert: fs.readFileSync('./SSL/code.crt'),
+  key: fs.readFileSync('./SSL/code.key'),
+}, app).listen(process.env.APP_PORT_HTTPS, () => {
+  console.log('API HTTPS');
 });
