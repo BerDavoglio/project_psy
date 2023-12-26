@@ -34,8 +34,8 @@ app.listen(process.env.APP_PORT, async () => {
 });
 
 https.createServer({
-  cert: fs.readFileSync('./SSL/code.crt'),
-  key: fs.readFileSync('./SSL/code.key'),
+  cert: fs.readFileSync('./src/SSL/code.crt'),
+  key: fs.readFileSync('./src/SSL/code.key'),
 }, app).listen(process.env.APP_PORT_HTTPS, () => {
   console.log('API HTTPS');
 });
