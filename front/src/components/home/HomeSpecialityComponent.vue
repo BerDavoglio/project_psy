@@ -33,7 +33,7 @@ export default {
       {
         title: 'Psiquiatria Forense',
         text: 'A Psiquiatria Forense une psiquiatria e leis, aplicando princípios psiquiátricos em questões legais. Psiquiatras forenses dão depoimentos em tribunais, explicando avaliações de saúde mental aos profissionais jurídicos.',
-        img: 'https://eephcfmusp.org.br/portal/online/wp-content/uploads/sites/2/2023/09/Imagem3.png',
+        img: 'https://d2dxldo5hhj2zu.cloudfront.net/img/674x,jpeg/https://d3043uog1ad1l6.cloudfront.net/uploads/2023/08/psiquiatria_forense.jpg',
       },
     ],
   }),
