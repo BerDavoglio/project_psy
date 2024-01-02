@@ -3,19 +3,21 @@
     <div className="text-2xl font-bold">
       Profissionais:
     </div>
-    <div v-if="useProfissionalStore().getList.length > 0">
-      <div
-        v-for="(obj, index) in useProfissionalStore().getList"
-        :key="obj"
-        className="font-mono">
-        <profissional-box-component
-          :obj="obj"
-          :i="index"
-          :isCell="isCell" />
+    <div className="min-h-[30rem]">
+      <div v-if="useProfissionalStore().getList.length > 0">
+        <div
+          v-for="(obj, index) in useProfissionalStore().getList"
+          :key="obj"
+          className="font-mono">
+          <profissional-box-component
+            :obj="obj"
+            :i="index"
+            :isCell="isCell" />
+        </div>
       </div>
-    </div>
-    <div v-else className="py-36 font-bold text-2xl">
-      Infelizmente, nenhum doutor(a) foi cadastrado!
+      <div v-else className="py-36 font-bold text-2xl">
+        Infelizmente, nenhum doutor(a) foi cadastrado!
+      </div>
     </div>
   </div>
 </template>
