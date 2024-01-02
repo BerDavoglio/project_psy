@@ -7,7 +7,7 @@
         + (isCell ? 'grid-cols-1' : 'grid-cols-6')]">
       <img
         className="m-auto rounded-full h-28 w-28 my-4 object-cover"
-        :src="['http://195.35.40.70:3096' + obj.image]"
+        :src="['https://195.35.40.70:3096' + obj.image + '.jpg']"
         alt="" />
       <div :className="['m-2 ' + (isCell ? '' : 'col-span-4')]">
         <div>
