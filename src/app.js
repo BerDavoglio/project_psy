@@ -22,7 +22,7 @@ class App {
 
   middlewares() {
     // this.app.use('/images', express.static(path.join(__dirname, './images')));
-    this.app.use('/images', express.static(path.join(__dirname, '@dist/middlewares/images')));
+    this.app.use('/images', express.static(path.resolve('dist/middlewares/images')));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(cors());
