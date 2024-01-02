@@ -10,7 +10,7 @@
       <img
         :className="['m-auto rounded-full h-40 w-40 my-4 object-cover  '
           + (i % 2 == 0 ? '' : 'order-last')]"
-        :src="['https://195.35.40.70:3096' + obj.image + '.jpg']"
+        :src="['https://195.35.40.70:3096' + obj.image]"
         alt="" />
       <div className="col-span-4 m-2">
         <div className="font-bold text-xl">
