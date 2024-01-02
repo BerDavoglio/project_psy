@@ -13,7 +13,7 @@
         <v-icon name="bi-facebook" /> Facebook
       </div>
       <div className="cursor-pointer mt-2" @click="goToLinkedin">
-        <v-icon name="bi-linkedin " /> LinkedIn
+        <v-icon name="bi-linkedin" /> LinkedIn
       </div>
     </div>
   </div>
