@@ -14,7 +14,7 @@
         </div>
       </div>
       <div
-        className="min-h-[16rem]"
+        className="min-h-[20rem]"
         v-if="useProfissionalStore().getList.length > 0">
         <div
           v-for="obj in useProfissionalStore().getList"
@@ -26,7 +26,7 @@
       </div>
       <div
         v-else
-        className="py-48 font-bold text-2xl">
+        className="py-[10rem] font-bold text-2xl">
         Infelizmente, nenhum doutor(a) foi cadastrado!
       </div>
     </div>
