@@ -14,7 +14,7 @@
         </div>
       </div>
       <div v-else
-           className="py-36 font-bold text-2xl">
+           className="py-[20rem] font-bold text-2xl">
         Infelizmente, nenhum doutor(a) foi cadastrado!
       </div>
     </div>
