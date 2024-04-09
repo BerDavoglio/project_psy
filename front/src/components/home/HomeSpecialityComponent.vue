@@ -5,8 +5,8 @@
     <div className="w-full pb-10 bg-blue-200">
       <div className="text-xl p-4 font-bold">Especialidades:</div>
       <div
-        :className="['flex flex-row justify-evenly max-w-[40rem] m-auto '
-          + (isCell ? 'flex-col' : 'flex-row')]">
+        :className="['justify-evenly max-w-[40rem] m-auto '
+          + (isCell ? '' : 'flex flex-row')]">
         <home-speciality-box :obj="obj[0]" />
         <home-speciality-box :obj="obj[1]" />
       </div>
