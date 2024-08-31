@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
-  <div>
+  <!-- <div>
     <div
       :className="['max-w-[56rem] bg-blue-200 rounded-3xl my-4 shadow-xl shadow-black/30 grid mx-auto '
         + (isCell ? 'grid-cols-1' : 'grid-cols-6')]">
@@ -35,16 +35,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
-import { useProfissionalStore } from '../../store/store';
+// import { useProfissionalStore } from '../../store/store';
 </script>
 
 <script>
-export default {
-  name: 'AdminEmployeeBox',
-  props: ['obj', 'isCell'],
-};
+// export default {
+//   name: 'AdminEmployeeBox',
+//   props: ['obj', 'isCell'],
+// };
 </script>

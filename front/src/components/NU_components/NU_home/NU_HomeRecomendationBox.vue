@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 <template>
-  <div>
+  <!-- <div>
     <div
       className="p-2 text-lg
         max-w-96 min-h-[200px] bg-blue-200 mx-4
@@ -20,15 +20,15 @@
         Google Ads{{ obj.rate != '' ? (' - ⭐' + obj.rate) : '' }}
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-export default {
-  name: 'HomeRecomendationBox',
-  props: ['obj'],
-  data: () => ({
-    hover: false,
-  }),
-};
+// export default {
+//   name: 'HomeRecomendationBox',
+//   props: ['obj'],
+//   data: () => ({
+//     hover: false,
+//   }),
+// };
 </script>

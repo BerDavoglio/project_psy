@@ -1,26 +1,15 @@
-<template>
-  <div className="home font-mono">
-    <home-clinics-component :isCell="isCell" />
-    <div className="h-10" />
-    <home-speciality-component :isCell="isCell" />
-    <div className="h-10" />
-    <home-day-hospital-component />
-    <div className="h-10" />
+2<template>
+  <div class="profissional-view">
+    <div className="text-2xl font-bold">
+      Profissionais:
+    </div>
   </div>
 </template>
 
 <script>
-import HomeClinicsComponent from '../components/home/HomeClinicsComponent.vue';
-import HomeSpecialityComponent from '../components/home/HomeSpecialityComponent.vue';
-import HomeDayHospitalComponent from '../components/home/HomeDayHospitalComponent.vue';
-
 export default {
-  name: 'HomeView',
-  components: {
-    HomeClinicsComponent,
-    HomeDayHospitalComponent,
-    HomeSpecialityComponent,
-  },
+  name: 'TecDirectorView',
+
   data() {
     return {
       isCell: false,
@@ -42,8 +31,11 @@ export default {
       this.isCell = this.verifyResize(newWidth);
     },
   },
-  beforeMount() {
+  async beforeMount() {
     this.isCell = this.verifyResize(window.innerWidth);
+
+    const store = useProfissionalStore();
+    await store.requestProfissional();
   },
   mounted() {
     this.$nextTick(() => {

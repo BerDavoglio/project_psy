@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/max-len -->
 <!-- eslint-disable max-len -->
-<template>
+<!-- <template>
   <div class="about-history-component">
     <div className="max-w-[34rem] px-2 m-auto">
       <div className="font-bold text-left text-2xl">
@@ -47,11 +47,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-export default {
-  name: 'AboutHistoryComponent',
-};
+// export default {
+//   name: 'AboutHistoryComponent',
+// };
 </script>

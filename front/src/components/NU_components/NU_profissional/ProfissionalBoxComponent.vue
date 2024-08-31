@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div class="profissional-box-component mx-2">
+  <!-- <div class="profissional-box-component mx-2">
     <div
       v-if="!isCell"
       className="max-w-[56rem] bg-blue-200
@@ -40,12 +40,12 @@
         <div>{{ obj.text }}</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
-export default {
-  name: 'ProfissionalBoxComponent',
-  props: ['obj', 'i', 'isCell'],
-};
+// export default {
+//   name: 'ProfissionalBoxComponent',
+//   props: ['obj', 'i', 'isCell'],
+// };
 </script>

@@ -1,25 +1,29 @@
 <template>
   <div className="home font-mono">
-    <home-clinics-component :isCell="isCell" />
+    <home-images-component :isCell="isCell" />
+    <div className="h-10" />
+    <home-about-component />
     <div className="h-10" />
     <home-speciality-component :isCell="isCell" />
     <div className="h-10" />
-    <home-day-hospital-component />
+    <home-recomendation-component :isCell="isCell" />
     <div className="h-10" />
   </div>
 </template>
 
 <script>
-import HomeClinicsComponent from '../components/home/HomeClinicsComponent.vue';
+import HomeImagesComponent from '../components/home/HomeImagesComponent.vue';
+import HomeAboutComponent from '../components/home/HomeAboutComponent.vue';
 import HomeSpecialityComponent from '../components/home/HomeSpecialityComponent.vue';
-import HomeDayHospitalComponent from '../components/home/HomeDayHospitalComponent.vue';
+import HomeRecomendationComponent from '../components/home/HomeRecomendationComponent.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    HomeClinicsComponent,
-    HomeDayHospitalComponent,
+    HomeImagesComponent,
+    HomeAboutComponent,
     HomeSpecialityComponent,
+    HomeRecomendationComponent,
   },
   data() {
     return {

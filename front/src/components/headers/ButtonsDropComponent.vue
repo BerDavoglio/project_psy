@@ -23,7 +23,7 @@
             active:text-white
             w-[8rem]"
           @click="goPage('about')">
-          Sobre
+          Especialidades
         </div>
         <div
           className="
@@ -33,7 +33,7 @@
             active:text-white
             w-[8rem]"
           @click="goPage('profissionals')">
-          Profissionais
+          Diretora Técnica
         </div>
         <div
           v-if="useLoginStore().getRole === 'user'"

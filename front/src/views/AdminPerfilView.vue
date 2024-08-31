@@ -9,12 +9,12 @@
         @click="goPage('admin-new-book')">
         Adicionar Consulta
       </div>
-      <div
+      <!-- <div
         className="w-48 p-2 bg-blue-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"
         @click="goPage('admin-employee')">
         Gerenciar Funcionários
-      </div>
+      </div> -->
       <div
         className="w-48 p-2 bg-red-200 my-10 mx-auto
       rounded-xl cursor-pointer shadow-xl"

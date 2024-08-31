@@ -9,7 +9,7 @@ import userRoutes from './routes/User/user_routes';
 import conquestsRoutes from './routes/User/conquests_routes';
 import jwtRoutes from './routes/User/jwt_routes';
 import adminCalendarsRoutes from './routes/Admin/calendars_routes';
-import adminDoctorsRoutes from './routes/Admin/doctors_routes';
+// import adminDoctorsRoutes from './routes/Admin/doctors_routes';
 
 dotenv.config();
 
@@ -33,7 +33,7 @@ class App {
     this.app.use('/jwt/', jwtRoutes);
     this.app.use('/conquests/', conquestsRoutes);
     this.app.use('/admin/calendars/', adminCalendarsRoutes);
-    this.app.use('/admin/doctors/', adminDoctorsRoutes);
+    // this.app.use('/admin/doctors/', adminDoctorsRoutes);
   }
 }
 

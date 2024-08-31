@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import Calendar from '../../models/Admin/Calendar_models';
-import Doctor from '../../models/Admin/Doctor_models';
+import Doctor from '../../models/Admin/NU_Doctor_models';
 import User from '../../models/User/User_models';
 
 class CalendarController {

@@ -223,133 +223,6 @@ export const useLoginStore = defineStore('loginStore', {
   persist: true,
 });
 
-export const useProfissionalStore = defineStore('profissionalStore', {
-  state: () => ({
-    list: [],
-    listProfissionalsIDNAME: [],
-  }),
-  getters: {
-    getList() {
-      return this.list;
-    },
-    getListProfissionalsIDNAME() {
-      return this.listProfissionalsIDNAME;
-    },
-  },
-  actions: {
-    async requestProfissional() {
-      try {
-        axios
-          .get(`${urlBase}/admin/doctors/`)
-          .then((response) => {
-            this.list = response.data;
-          });
-        return 0;
-      } catch (error) {
-        return error;
-      }
-    },
-    async requestProfissionalsIDNAME() {
-      try {
-        axios
-          .get(`${urlBase}/admin/doctors/docidname`)
-          .then((response) => {
-            this.listProfissionalsIDNAME = response.data;
-          });
-        return 0;
-      } catch (error) {
-        return error;
-      }
-    },
-    async createProfissional(obj, func) {
-      try {
-        axios
-          .post(
-            `${urlBase}/admin/doctors/`,
-            obj,
-            { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
-          )
-          .then(() => {
-            func();
-          })
-          .then(() => {
-            toast.success('Profissional criado com sucesso!', {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-            this.requestProfissional();
-          })
-          .catch((err) => {
-            toast.error(err.response.data.errors, {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-          });
-        return 0;
-      } catch (error) {
-        return error;
-      }
-    },
-    async updateProfissional(id, obj, func) {
-      try {
-        axios
-          .put(
-            `${urlBase}/admin/doctors/${id}`,
-            obj,
-            { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
-          )
-          .then(() => {
-            func();
-          })
-          .then(() => {
-            toast.success('Profissional atualizado com sucesso!', {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-            this.requestProfissional();
-          })
-          .catch((err) => {
-            toast.error(err.response.data.errors, {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-          });
-        return 0;
-      } catch (error) {
-        return error;
-      }
-    },
-    async deleteProfissional(obj, func) {
-      try {
-        axios
-          .delete(
-            `${urlBase}/admin/doctors/${obj.id}`,
-            { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
-          )
-          .then(() => {
-            toast.success('Profissional deletado com sucesso!', {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-            this.requestProfissional();
-          }).then(() => {
-            func();
-          })
-          .catch((err) => {
-            toast.error(err.response.data.errors, {
-              autoClose: 5000,
-              position: toast.POSITION.BOTTOM_RIGHT,
-            });
-          });
-        return 0;
-      } catch (error) {
-        return error;
-      }
-    },
-  },
-  persist: true,
-});
-
 export const useCalendarStore = defineStore('calendarStore', {
   state: () => ({
     list: [],
@@ -490,3 +363,130 @@ export const useConquestStore = defineStore('conquestStore', {
   },
   persist: true,
 });
+
+// export const useProfissionalStore = defineStore('profissionalStore', {
+//   state: () => ({
+//     list: [],
+//     listProfissionalsIDNAME: [],
+//   }),
+//   getters: {
+//     getList() {
+//       return this.list;
+//     },
+//     getListProfissionalsIDNAME() {
+//       return this.listProfissionalsIDNAME;
+//     },
+//   },
+//   actions: {
+//     async requestProfissional() {
+//       try {
+//         axios
+//           .get(`${urlBase}/admin/doctors/`)
+//           .then((response) => {
+//             this.list = response.data;
+//           });
+//         return 0;
+//       } catch (error) {
+//         return error;
+//       }
+//     },
+//     async requestProfissionalsIDNAME() {
+//       try {
+//         axios
+//           .get(`${urlBase}/admin/doctors/docidname`)
+//           .then((response) => {
+//             this.listProfissionalsIDNAME = response.data;
+//           });
+//         return 0;
+//       } catch (error) {
+//         return error;
+//       }
+//     },
+//     async createProfissional(obj, func) {
+//       try {
+//         axios
+//           .post(
+//             `${urlBase}/admin/doctors/`,
+//             obj,
+//             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
+//           )
+//           .then(() => {
+//             func();
+//           })
+//           .then(() => {
+//             toast.success('Profissional criado com sucesso!', {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//             this.requestProfissional();
+//           })
+//           .catch((err) => {
+//             toast.error(err.response.data.errors, {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//           });
+//         return 0;
+//       } catch (error) {
+//         return error;
+//       }
+//     },
+//     async updateProfissional(id, obj, func) {
+//       try {
+//         axios
+//           .put(
+//             `${urlBase}/admin/doctors/${id}`,
+//             obj,
+//             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
+//           )
+//           .then(() => {
+//             func();
+//           })
+//           .then(() => {
+//             toast.success('Profissional atualizado com sucesso!', {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//             this.requestProfissional();
+//           })
+//           .catch((err) => {
+//             toast.error(err.response.data.errors, {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//           });
+//         return 0;
+//       } catch (error) {
+//         return error;
+//       }
+//     },
+//     async deleteProfissional(obj, func) {
+//       try {
+//         axios
+//           .delete(
+//             `${urlBase}/admin/doctors/${obj.id}`,
+//             { headers: { Authorization: `Bearer ${useLoginStore().getToken}` } },
+//           )
+//           .then(() => {
+//             toast.success('Profissional deletado com sucesso!', {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//             this.requestProfissional();
+//           }).then(() => {
+//             func();
+//           })
+//           .catch((err) => {
+//             toast.error(err.response.data.errors, {
+//               autoClose: 5000,
+//               position: toast.POSITION.BOTTOM_RIGHT,
+//             });
+//           });
+//         return 0;
+//       } catch (error) {
+//         return error;
+//       }
+//     },
+//   },
+//   persist: true,
+// });
