@@ -20,10 +20,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      doctor_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
+      // doctor_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      // },
       is_finished: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

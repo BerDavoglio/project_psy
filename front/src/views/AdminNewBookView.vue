@@ -20,22 +20,6 @@
           </option>
         </select>
       </div>
-      <!-- MUDAR INPUT PARA SELECT/USAR O URL/DOCTORSIDNAME/ -->
-      <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
-        <select
-          v-model="book.doctor_id"
-          className="h-10 w-full px-3">
-          <option
-            disabled
-            value="">Selecione o Doutor</option>
-          <option
-            v-for="option in useProfissionalStore().getListProfissionalsIDNAME"
-            :value="option.id"
-            v-bind:key="option">
-            {{ option.name }}
-          </option>
-        </select>
-      </div>
       <div className="w-full border-[0.1rem] border-gray-400 rounded-[0.3rem] mb-2">
         <input
           v-model="book.description"
@@ -55,7 +39,7 @@
 
 <script setup>
 import VueDatePicker from '@vuepic/vue-datepicker';
-import { useCalendarStore, useLoginStore, useProfissionalStore } from '../store/store';
+import { useCalendarStore, useLoginStore } from '../store/store';
 import '@vuepic/vue-datepicker/dist/main.css';
 </script>
 
@@ -70,10 +54,6 @@ export default {
         patient_id: (this.$route.params.id
           // eslint-disable-next-line eqeqeq
           ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).patient_id
-          : ''),
-        doctor_id: (this.$route.params.id
-          // eslint-disable-next-line eqeqeq
-          ? useCalendarStore().getList.find((obj) => obj.id == this.$route.params.id).doctor_id
           : ''),
         date: (this.$route.params.id
           // eslint-disable-next-line eqeqeq
@@ -113,7 +93,6 @@ export default {
   },
   async beforeMount() {
     await useLoginStore().requestPerfilIDNAME();
-    await useProfissionalStore().requestProfissionalsIDNAME();
     await useCalendarStore().requestCalendar();
   },
 };

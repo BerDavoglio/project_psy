@@ -1,25 +1,21 @@
 
 <template>
   <div class="home-images-component">
-    <div class="flex max-w-[55rem]">
+    <div :className="['flex max-w-[55rem] m-auto '] + (isCell ? 'flex-col' : '')">
       <div className="max-w-[35rem] m-auto">
-        <Carousel :itemsToShow="1"
-                  :wrapAround="true"
-                  :transition="1000"
-                  :autoplay="3000">
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/sc/1.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-        </Carousel>
+        <img src="@/assets/images/sc/1.jpeg"
+             alt=''
+             className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+        <div @click="goTo" className="">designed by pressfoto - Freepik.com</div>
       </div>
-      <div>
-        <div>Clinica Santa Catarina</div>
-        <div>Endereço</div>
-        <div>Telefone</div>
-        <div>Link Whatsapp</div>
+      <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-left ml-8')]">
+        <div class="font-semibold text-xl">Clinica Santa Catarina</div>
+        <div>Somente atendimentos online</div>
+        <div>Telefone (WhatsApp): +55 47 9102-6106</div>
+        <div className="cursor-pointer mt-2 underline"
+             @click="goToWhatsapp">
+          <v-icon name="bi-whatsapp" /> Agende uma consulta
+        </div>
       </div>
     </div>
   </div>
@@ -37,6 +33,14 @@ export default {
   },
   props: ['isCell'],
   data: () => ({}),
+  methods: {
+    goTo() {
+      window.open('https://br.freepik.com', '_blank');
+    },
+    goToWhatsapp() {
+      window.open('https://wa.me/554791026106', '_blank');
+    },
+  },
 };
 </script>
 

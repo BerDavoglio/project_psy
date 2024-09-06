@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/max-len -->
 <!-- eslint-disable max-len -->
 <template>
-  <!-- <div class="about-infra-component">
+  <div class="about-infra-component">
     <div className="max-w-[34rem] px-2 m-auto">
       <div className="font-bold text-left text-2xl">
         Sobre Psiquiatria:
@@ -38,11 +38,11 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
-// export default {
-//   name: 'AboutInfraComponent',
-// };
+export default {
+  name: 'AboutInfraComponent',
+};
 </script>

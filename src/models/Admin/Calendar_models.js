@@ -15,10 +15,10 @@ export default class Calendar extends Model {
         type: Sequelize.TEXT,
         defaultValue: '',
       },
-      doctor_id: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-      },
+      // doctor_id: {
+      //   type: Sequelize.INTEGER,
+      //   defaultValue: 0,
+      // },
       is_finished: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,

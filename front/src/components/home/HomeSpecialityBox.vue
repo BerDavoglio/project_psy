@@ -21,7 +21,7 @@
         <div className="text-2xl font-bold">
           {{ obj.title }}
         </div>
-        <div class="text-center text-sm mt-3">
+        <div class="text-center text-sm mt-3 overflow-auto h-56">
           {{ obj.text }}
         </div>
       </div>

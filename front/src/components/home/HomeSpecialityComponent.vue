@@ -6,7 +6,7 @@
       <div className="text-xl p-4 font-bold">Especialidades:</div>
       <div
         :className="['justify-evenly max-w-[40rem] m-auto '
-          + (isCell ? '' : 'flex flex-row')]">
+          + (isCell ? '' : 'flex flex-row flex-wrap flex-[0 0 25%]')]">
         <home-speciality-box :obj="obj[0]" />
         <home-speciality-box :obj="obj[1]" />
         <home-speciality-box :obj="obj[2]" />

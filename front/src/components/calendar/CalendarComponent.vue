@@ -74,8 +74,6 @@
                 <strong>Paciente: </strong>
                 {{ useLoginStore().getListPerfilsID.find(pat => pat.id === obj.patient_id).name }}
                 <br />
-                <strong>Doutor(a): </strong>
-                {{ useProfissionalStore().getListProfissionalsIDNAME.find(doc => doc.id === obj.doctor_id).name }}
               </div>
               <div className="m-2">
                 <strong>Horário marcado: </strong>
@@ -144,7 +142,7 @@
 </template>
 
 <script setup>
-import { useCalendarStore, useLoginStore, useProfissionalStore } from '../../store/store';
+import { useCalendarStore, useLoginStore } from '../../store/store';
 </script>
 
 <script>
@@ -247,7 +245,6 @@ export default {
   async beforeCreate() {
     await useCalendarStore().requestCalendar();
     await useLoginStore().requestPerfilIDNAME();
-    await useProfissionalStore().requestProfissionalsIDNAME();
   },
 };
 </script>

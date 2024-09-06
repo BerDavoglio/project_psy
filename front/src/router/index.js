@@ -1,10 +1,10 @@
-// import AboutView from '../views/AboutView.vue';
 // import ProfissionalView from '../views/ProfissionalView.vue';
 // import AdminEmployeeView from '../views/AdminEmployeeView.vue';
 // import AdminNewEmployeeView from '../views/AdminNewEmployeeView.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import AboutView from '../views/AboutView.vue';
 import UserPerfilView from '../views/UserPerfilView.vue';
 import AdminNewBookView from '../views/AdminNewBookView.vue';
 import AdminPerfilView from '../views/AdminPerfilView.vue';
@@ -16,6 +16,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutView,
   },
   {
     path: '/tec-director',
@@ -42,11 +47,6 @@ const routes = [
     name: 'login',
     component: LoginView,
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: AboutView,
-  // },
   // {
   //   path: '/admin/employee',
   //   name: 'admin-employee',

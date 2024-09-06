@@ -23,7 +23,7 @@
             active:text-white
             w-[8rem]"
           @click="goPage('about')">
-          Especialidades
+          Sobre
         </div>
         <div
           className="
@@ -32,7 +32,7 @@
             active:bg-blue-400
             active:text-white
             w-[8rem]"
-          @click="goPage('profissionals')">
+          @click="goPage('tech-director')">
           Diretora Técnica
         </div>
         <div

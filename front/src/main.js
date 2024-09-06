@@ -21,6 +21,7 @@ import {
   BiFacebook,
   BiInstagram,
   BiLinkedin,
+  BiWhatsapp,
 } from 'oh-vue-icons/icons';
 
 import Vue3Toasity from 'vue3-toastify';
@@ -51,6 +52,7 @@ addIcons(
   BiFacebook,
   BiInstagram,
   BiLinkedin,
+  BiWhatsapp,
 );
 
 createApp(App).component('v-icon', OhVueIcon)

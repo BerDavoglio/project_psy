@@ -1,54 +1,51 @@
 <template>
   <div class="home-images-component">
-    <div class="flex max-w-[55rem]">
+    <div :className="['flex max-w-[55rem] m-auto '] + (isCell ? 'flex-col' : '')">
       <div className="max-w-[35rem] m-auto">
         <Carousel :itemsToShow="1"
                   :wrapAround="true"
                   :transition="1000"
                   :autoplay="3000">
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/1.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/2.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/3.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/4.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/5.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
-            <Slide v-for="image in 1"
-                   :key="image">
-              <img src="@/assets/images/cwb/6.jpeg"
-                   alt=''
-                   className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-            </Slide>
+          <Slide v-for="image in 1"
+                 :key="image">
+            <img src="@/assets/images/cwb/1.jpeg"
+                 alt=''
+                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+          </Slide>
+          <Slide v-for="image in 1"
+                 :key="image">
+            <img src="@/assets/images/cwb/2.jpeg"
+                 alt=''
+                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+          </Slide>
+          <Slide v-for="image in 1"
+                 :key="image">
+            <img src="@/assets/images/cwb/4.jpeg"
+                 alt=''
+                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+          </Slide>
+          <Slide v-for="image in 1"
+                 :key="image">
+            <img src="@/assets/images/cwb/5.jpeg"
+                 alt=''
+                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+          </Slide>
+          <Slide v-for="image in 1"
+                 :key="image">
+            <img src="@/assets/images/cwb/6.jpeg"
+                 alt=''
+                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
+          </Slide>
         </Carousel>
       </div>
-      <div>
-        <div>Clinica Curitiba</div>
-        <div>Endereço</div>
-        <div>Telefone</div>
-        <div>Link Whatsapp</div>
+      <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-left ml-8')]">
+        <div class="font-semibold text-xl">Clinica Curitiba</div>
+        <div>Rua Mateus Leme, 289, Loja 1 (Terreo)</div>
+        <div>Telefone (WhatsApp): +55 41 99500-8877</div>
+        <div className="cursor-pointer mt-2 underline"
+             @click="goToWhatsapp">
+          <v-icon name="bi-whatsapp" /> Agende uma consulta
+        </div>
       </div>
     </div>
   </div>
@@ -66,6 +63,11 @@ export default {
   },
   props: ['isCell'],
   data: () => ({}),
+  methods: {
+    goToWhatsapp() {
+      window.open('https://wa.me/5541995008877', '_blank');
+    },
+  },
 };
 </script>
 

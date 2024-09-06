@@ -13,7 +13,7 @@ app.listen(process.env.APP_PORT, async () => {
     console.log('Server already has been migrated');
   }
 
-  const user = await User.findByPk(1);
+  const user = await User.findOne({ email: 'admin@gmail.com' });
   if (!user) {
     await User.create({
       name: 'admin',
