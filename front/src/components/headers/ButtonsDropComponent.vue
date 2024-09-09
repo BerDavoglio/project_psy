@@ -33,7 +33,7 @@
             active:text-white
             w-[8rem]"
           @click="goPage('tech-director')">
-          Diretora Técnica
+          Profissionais
         </div>
         <div
           v-if="useLoginStore().getRole === 'user'"

@@ -1,9 +1,9 @@
 <template>
   <div class="home-images-component">
-    <div :className="['flex max-w-[55rem] m-auto '] + (isCell ? 'flex-col-reverse' : '')">
+    <div :className="['flex max-w-[70rem] m-auto '] + (isCell ? 'flex-col-reverse' : '')">
       <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-right mr-8')]">
-        <div class="font-semibold text-xl">Clinica São José dos Pinhais</div>
-        <div>Av. das Americanas, 737, Lojas 1, 2 e 3 (Terreo)</div>
+        <div class="font-semibold text-xl">Clínica São José dos Pinhais</div>
+        <div>Av. das Americanas, 737, Lojas 1, 2 e 3 (Térreo)</div>
         <div>Telefone (WhatsApp): +55 41 99222-1174</div>
         <div className="cursor-pointer mt-2 underline"
              @click="goToWhatsapp">

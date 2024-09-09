@@ -1,7 +1,7 @@
 
 <template>
   <div class="home-images-component">
-    <div :className="['flex max-w-[55rem] m-auto '] + (isCell ? 'flex-col' : '')">
+    <div :className="['flex max-w-[70rem] m-auto '] + (isCell ? 'flex-col' : '')">
       <div className="max-w-[35rem] m-auto">
         <img src="@/assets/images/sc/1.jpeg"
              alt=''
@@ -9,9 +9,9 @@
         <div @click="goTo" className="">designed by pressfoto - Freepik.com</div>
       </div>
       <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-left ml-8')]">
-        <div class="font-semibold text-xl">Clinica Santa Catarina</div>
+        <div class="font-semibold text-xl">Clínica Santa Catarina</div>
         <div>Somente atendimentos online</div>
-        <div>Telefone (WhatsApp): +55 47 9102-6106</div>
+        <div>Telefone (WhatsApp): +55 47 99102-6106</div>
         <div className="cursor-pointer mt-2 underline"
              @click="goToWhatsapp">
           <v-icon name="bi-whatsapp" /> Agende uma consulta

@@ -2,22 +2,20 @@
 <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 <template>
   <div>
-    <div
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
-      className="w-56 h-80 m-auto
+    <div @mouseover="hover = true"
+         @mouseleave="hover = false"
+         className="w-56 h-80 m-auto
             shadow-xl shadow-black/30
             text-white mt-2">
-      <div
-        v-if="hover == false"
-        :style="{ backgroundImage: `url(${obj.img})` }"
-        className="
-          rounded-md w-full h-full text-2xl
+      <div v-if="hover === false"
+           :style="{ backgroundImage: `url(${obj.img})` }"
+           class="rounded-md w-full h-full text-2xl
           flex place-items-center justify-center font-bold uppercase
           bg-cover bg-no-repeat bg-center">
         {{ obj.title }}
       </div>
-      <div v-if="hover == true" className="bg-white text-black p-3 w-full h-full rounded-md">
+      <div v-if="hover == true"
+           className="bg-white text-black p-3 w-full h-full rounded-md">
         <div className="text-2xl font-bold">
           {{ obj.title }}
         </div>

@@ -1,19 +1,29 @@
 <template>
   <div class="profissional-view"
        className="font-mono">
-    <div className="max-w-[34rem] px-2 m-auto">
-      <div className="text-2xl font-bold">
-        Dra. Gisele Romagna (Diretora Técnica):
-      </div>
-      <div className="text-justify">
-        <div className="my-2">
-          A trajetória da Dra. Gisele Romagna Stocco (CRM: 16278/PR), psiquiatra graduada pela Universidade Federal do
-          Paraná e especialista em Medicina Forense, está marcada por uma busca incansável para fornecer um cuidado
-          integral e personalizado para cada pessoa que busca ajuda na Angimedi.
+    <div className="max-w-[40rem] px-2 m-auto">
+      <div :className="['flex ' + (isCell ? 'flex-col' : '')]">
+        <div :className="[''  + (isCell ? 'm-auto' : '')]">
+          <img src="@/assets/images/dra_gisele.jpg"
+                 alt=''
+                 className="w-[15rem] h-[20rem] bg-blue-400 object-cover" />
+        </div>
+        <div>
+          <div className="text-2xl font-bold">
+            Dra. Gisele Romagna (Diretora Técnica):
+          </div>
+          <div className="text-justify max-w-[27rem]">
+            <div className="my-2 pl-4">
+              A trajetória da Dra. Gisele Romagna Stocco (CRM: 16278/PR), psiquiatra graduada pela Universidade Federal
+              do
+              Paraná e especialista em Medicina Forense, está marcada por uma busca incansável para fornecer um cuidado
+              integral e personalizado para cada pessoa que busca ajuda na Angimedi.
+            </div>
+          </div>
         </div>
       </div>
       <div className="text-2xl font-bold">
-        Equipe:
+        Equipe Médica:
       </div>
       <div className="text-justify">
         <div className="my-2">

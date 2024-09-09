@@ -1,6 +1,6 @@
 <template>
   <div class="home-images-component">
-    <div :className="['flex max-w-[55rem] m-auto '] + (isCell ? 'flex-col' : '')">
+    <div :className="['flex max-w-[70rem] m-auto '] + (isCell ? 'flex-col' : '')">
       <div className="max-w-[35rem] m-auto">
         <Carousel :itemsToShow="1"
                   :wrapAround="true"
@@ -39,8 +39,8 @@
         </Carousel>
       </div>
       <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-left ml-8')]">
-        <div class="font-semibold text-xl">Clinica Curitiba</div>
-        <div>Rua Mateus Leme, 289, Loja 1 (Terreo)</div>
+        <div class="font-semibold text-xl">Clínica Curitiba</div>
+        <div>Rua Mateus Leme, 289, Loja 1 (Térreo)</div>
         <div>Telefone (WhatsApp): +55 41 99500-8877</div>
         <div className="cursor-pointer mt-2 underline"
              @click="goToWhatsapp">
