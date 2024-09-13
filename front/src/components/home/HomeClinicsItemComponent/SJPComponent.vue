@@ -17,37 +17,37 @@
                   :autoplay="3000">
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/1.jpeg"
+            <img src="@/assets/images/sjp/1.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/2.jpeg"
+            <img src="@/assets/images/sjp/2.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/3.jpeg"
+            <img src="@/assets/images/sjp/3.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/4.jpeg"
+            <img src="@/assets/images/sjp/4.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/5.jpeg"
+            <img src="@/assets/images/sjp/5.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/6.jpeg"
+            <img src="@/assets/images/sjp/6.jpg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
