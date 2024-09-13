@@ -7,7 +7,10 @@
     </div>
     <div className="text-justify">
       <div className="my-2">
-        O Hospital dia foi criado para prestar atendimento aos pacientes que necessitam de uma assistência intermediária entre o ambulatório e um hospital integral.
+        O Hospital dia, localizado na nossa unidade de São José dos Pinhais, foi criado para prestar atendimento aos pacientes que necessitam de uma assistência intermediária entre o ambulatório e um hospital integral e atende pacientes particulares e conveniados.
+      </div>
+      <div className="my-2">
+        Contamos com uma competente equipe treinada para providenciar o melhor acolhimento para o paciente, com médicos, psicólogos, promovendo grupos terapêuticos e um espaço aconchegante de tratamento.
       </div>
       <div className="my-2">
         O H.D. da Angimedi irá atuar somente no modelo não intensivo e semi intensivo, dependendo do paciente. O não intensivo é para o paciente que não precisa de atenção e/ou suporte contínuo da equipe para viver no seu território e realiza suas atividades de trabalho e/ou família, vem ao HD até 3x mês e passará um período de até 4 horas.
