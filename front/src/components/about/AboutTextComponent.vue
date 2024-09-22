@@ -8,7 +8,7 @@
       </div>
       <div className="text-justify">
         <div className="my-2">
-          A Angimedi Clínica Médica tem sido uma instituição emblemática desde sua fundação no ano de 2000 pela Dra.
+          <span className="text-[0.1px] mr-8">.</span>A Angimedi Clínica Médica tem sido uma instituição emblemática desde sua fundação no ano de 2000 pela Dra.
           Gisele Romagna Stocco. Especializada em psiquiatria, a clínica foi concebida com uma visão clara e apaixonada:
           oferecer atendimento de saúde de alta qualidade e humanizado para seus pacientes.
         </div>

@@ -3,7 +3,7 @@
     <div :className="['flex max-w-[70rem] m-auto '] + (isCell ? 'flex-col-reverse' : '')">
       <div :className="['h-fit m-auto ' + (isCell ? 'mt-4' : 'text-right mr-8')]">
         <div class="font-semibold text-xl">Clínica São José dos Pinhais</div>
-        <div>Av. das Americanas, 737, Lojas 1, 2 e 3 (Térreo)</div>
+        <div>Av. das Américas, 737, Térreo</div>
         <div>Telefone (WhatsApp): +55 41 99222-1174</div>
         <div className="cursor-pointer mt-2 underline"
              @click="goToWhatsapp">
@@ -15,12 +15,6 @@
                   :wrapAround="true"
                   :transition="1000"
                   :autoplay="3000">
-          <Slide v-for="image in 1"
-                 :key="image">
-            <img src="@/assets/images/sjp/1.jpg"
-                 alt=''
-                 className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
-          </Slide>
           <Slide v-for="image in 1"
                  :key="image">
             <img src="@/assets/images/sjp/2.jpg"
@@ -35,7 +29,7 @@
           </Slide>
           <Slide v-for="image in 1"
                  :key="image">
-            <img src="@/assets/images/sjp/4.jpg"
+            <img src="@/assets/images/sjp/4.jpeg"
                  alt=''
                  className="w-[35rem] h-[25rem] bg-blue-400 object-cover" />
           </Slide>
