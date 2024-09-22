@@ -38,8 +38,8 @@ export default {
         img: require('@/assets/images/forense.webp'),
       },
       {
-        title: 'Tratamento de Escetamina',
-        text: 'O tratamento de escetamina é indicado para pacientes que sofrem de depressão resistente, o quais já foram submetidos a outros protocolos convencionais de tratamento mas não obtiveram melhora do quadro. A substância pode ser administrada por infusão endovenosa, aplicação subcutânea ou spray nasal.',
+        title: 'Tratamento com Escetamina',
+        text: 'O tratamento com escetamina é indicado para pacientes que sofrem de depressão resistente, o quais já foram submetidos a outros protocolos convencionais de tratamento mas não obtiveram melhora do quadro. A substância pode ser administrada por infusão endovenosa, aplicação subcutânea ou spray nasal.',
         img: require('@/assets/images/escetamina.jpg'),
       },
       {
